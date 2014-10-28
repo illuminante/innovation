@@ -17,3 +17,21 @@ background: linear-gradient(to bottom,  #ffffff 58%,#ededed 99%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
 
 }
+
+.titulo-evento {
+    padding:10px;
+    background-color: #0956A6;
+    color:white;
+    font-weight: bold;
+    font-family: Calibri;
+    text-align: center;
+}
+
+.item-content {
+    min-height: 54px;
+    
+}
+
+.item-inner {
+    border-bottom: 1px solid #FFFFFF
+}
