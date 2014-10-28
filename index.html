@@ -34,9 +34,11 @@
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main">
         <!-- Top Navbar-->
-        <div class="navbar">
+        <div class="navbar navbar-bg">
           <div class="navbar-inner">
-            <!-- We have home navbar without left link-->
+            <div class="left">
+              <!-- Left link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only"> <i class="icon icon-sign"></i></a>
+            </div>
             <div class="center sliding">3ª da Inovação</div>
             <div class="right">
               <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
@@ -49,20 +51,26 @@
           <div data-page="index" class="page">
             <!-- Scrollable page content-->
             <div class="page-content">
-              <div class="content-block-title">Welcome To My Awesome App</div>
-              <div class="content-block">
-                <div class="content-block-inner">
-                  <p>Couple of worlds here because my app is so awesome!</p>
-                  <p>Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.</p>
+              <!-- Slider container -->
+                <div class="slider-container slider-init" data-speed="400" data-pagination=".slider-pagination" data-autoplay="3000" data-loop="true">
+                    <!-- Slides wrapper -->
+                    <div class="slider-wrapper">
+                        <!-- Slides -->
+                        <div class="slider-slide">Slide 1</div>
+                        <div class="slider-slide">Slide 2</div>
+                        <div class="slider-slide">Slide 3</div>
+                        ... other slides ...
+                    </div>
+                    <!-- Pagination, if required -->
+                    <div class="slider-pagination"></div>
                 </div>
-              </div>
               <div class="content-block-title">What about simple navigation?</div>
               <div class="list-block">
                 <ul>
                   <li><a href="about.html" class="item-link">
                       <div class="item-content">
                         <div class="item-inner"> 
-                          <div class="item-title">About</div>
+                          <div class="item-title">Palestrantes</div>
                         </div>
                       </div></a></li>
                   <li><a href="services.html" class="item-link">
