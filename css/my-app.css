@@ -76,24 +76,33 @@ i.icon.icon-sign {
   -webkit-align-self: flex-end;
   align-self: flex-end;
   -webkit-box-align: end;
-  -ms-flex-align: end;*/
+  -ms-flex-align: end;
   -webkit-align-items: flex-end;
-  /*align-items: flex-end;*/
+  align-items: flex-end;*/
 }
 
 .message {
-    -webkit-box-sizing: border-box;
+    /*-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 1px 10px 0;
-  /*max-width: 70%;*/
+  box-sizing: border-box;*/
+  margin: 5px 10px 0;
+ /*max-width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
-  /*display: -webkit-flex;*/
+  /*display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
-  flex-direction: column;
+  flex-direction: column;*/
 }
+
+.message-sen{
+padding-right: 22px;
+background-color: #00d449;
+color: #fff;
+margin-left: auto;
+-webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' widt…1 7-5 37-42 35-37 2-43-28-42-35-1-7 5-37 42-35 37-2 43 28 42 35z'/></svg>") 50% 56% 46% 42%;
+}
+

@@ -3097,10 +3097,10 @@ body.panel-closing .views {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 1px 10px 0;
-  /*max-width: 70%;*/
+  max-width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
-  /*display: -webkit-flex;*/
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
