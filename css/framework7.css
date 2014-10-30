@@ -3168,13 +3168,13 @@ body.panel-closing .views {
   opacity: 0;
 }
 .message-sent {
-  /*-ms-flex-item-align: end;
+  -ms-flex-item-align: end;
   -webkit-align-self: flex-end;
   align-self: flex-end;
   -webkit-box-align: end;
-  -ms-flex-align: end;*/
+  -ms-flex-align: end;
   -webkit-align-items: flex-end;
-  /*align-items: flex-end;*/
+  align-items: flex-end;
 }
 .message-sent .message-name {
   margin-right: 16px;
