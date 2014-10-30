@@ -67,6 +67,8 @@ i.icon.icon-sign {
 
 
 
-.message {
-    margin:0px;
+
+
+.message-sent {
+    float:right;
 }
