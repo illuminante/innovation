@@ -1,25 +1,62 @@
 <!-- We don't need full layout here, because this page will be parsed with Ajax-->
 <!-- Top Navbar-->
 <div class="navbar" style="background-color:#4B3192; color:#fff; font-weight:bold">
-  <div class="navbar-inner">
-    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
-    <div class="center sliding">Perguntas</div>
-    <div class="right">
-      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
-    </div>
-  </div>
-</div>
-<div class="pages">
-  <!-- Page, data-page contains page name-->
-  <div data-page="perguntas" class="page">
-    <!-- Scrollable page content-->
-    <div class="page-content">
-      <div class="content-block">
-        <div class="content-block-inner">
-          
-        
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link"> <i class="icon icon-back"></i>
+            </a>
         </div>
-      </div>
+        <div class="center sliding">Perguntas</div>
+        <div class="right">
+            <!-- Right link contains only icon - additional "icon-only" class-->
+            <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i>
+            </a>
+        </div>
     </div>
-  </div>
+</div>
+
+<div class="pages">
+    <!-- Page, data-page contains page name-->
+    <div data-page="perguntas" class="page">
+        <!-- Scrollable page content-->
+        <div class="page-content messages-content">
+            <div class="messages messages-auto-layout">
+                <div class="messages-date">Sunday, Feb 9 <span>12:58</span>
+                </div>
+                <div class="message message-sent">
+                    <div class="message-text">Hello</div>
+                </div>
+                <div class="message message-sent">
+                    <div class="message-text">How are you?</div>
+                </div>
+                <div class="message message-received">
+                    <div class="message-name">Kate</div>
+                    <div class="message-text">I am fine, thanks</div>
+                    <div style="background-image:url(http://lorempixel.com/output/people-q-c-100-100-9.jpg)" class="message-avatar"></div>
+                </div>
+                <div class="messages-date">Sunday, Feb 3 <span>11:58</span>
+                </div>
+                <div class="message message-sent">
+                    <div class="message-text">Nice photo?</div>
+                </div>
+                <div class="message message-sent message-pic">
+                    <div class="message-text">
+                        <img src="http://lorempixel.com/300/300/">
+                    </div>
+                    <div class="message-label">Delivered</div>
+                </div>
+                <div class="message message-received">
+                    <div class="message-name">Kate</div>
+                    <div class="message-text">Wow, awesome!</div>
+                    <div style="background-image:url(http://lorempixel.com/output/people-q-c-100-100-9.jpg)" class="message-avatar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar messagebar">
+            <div class="toolbar-inner">
+                <textarea placeholder="Message" class=""></textarea><a href="#" class="link">Send</a>
+            </div>
+        </div>
+    </div>
+
 </div>
