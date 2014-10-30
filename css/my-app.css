@@ -64,3 +64,7 @@ i.icon.icon-sign {
     height: auto;
     padding-bottom: 5px;
 }
+
+.messages-content {
+    width:100%;
+}
