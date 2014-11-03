@@ -41,38 +41,25 @@ i.icon.icon-sign {
 .subTitle {
     margin-top: 10px;
     background-color: #424147;
-    color:#fff;
-    padding:10px;
-    font-weight:bold;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
 }
-
 .paddings30 {
-    padding-left:30px;
+    padding-left: 30px;
     padding-right: 30px;
-    
 }
-
 .form-content {
     padding-left: 12px;
     padding-right: 12px;
-        
 }
-
 .divider {
-    
-    background-color:#424147;
+    background-color: #424147;
     height: auto;
     padding-bottom: 5px;
 }
-
-
-
-
-
-
-
 .message-sent {
-  /*-ms-flex-item-align: end;
+    /*-ms-flex-item-align: end;
   -webkit-align-self: flex-end;
   align-self: flex-end;
   -webkit-box-align: end;
@@ -80,13 +67,12 @@ i.icon.icon-sign {
   -webkit-align-items: flex-end;
   align-items: flex-end;*/
 }
-
 .message {
     /*-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;*/
-  margin: 5px 10px 0;
- /*max-width: 70%;
+    margin: 5px 10px 0;
+    /*max-width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   /*display: -webkit-flex;
@@ -94,20 +80,77 @@ i.icon.icon-sign {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;*/
+    flex-direction: row;
+    -webkit-flex-direction: row;*/
 }
-
-.message-sen{
-padding-right: 22px;
-background-color: #00d449;
-color: #fff;
-margin-left: auto;
-
+.message-sen {
+    padding-right: 22px;
+    background-color: #00d449;
+    color: #fff;
+    margin-left: auto;
 }
-
-.message-sen.message-last .message-text, .message-sen.message-with-tail .message-text {
-border-radius: 16px 16px 0 16px;
--webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' widt…8 42 35z'/><path d='m96 70c-6-2-12-10-12-19v-16l-14 27s8 8 26 8z'/></svg>") 50% 56% 46% 42%;
+.message-sen.message-last .message-text,
+.message-sen.message-with-tail .message-text {
+    border-radius: 16px 16px 0 16px;
+    -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg height='35' viewBox='0 0 96 70' widt…8 42 35z'/><path d='m96 70c-6-2-12-10-12-19v-16l-14 27s8 8 26 8z'/></svg>") 50% 56% 46% 42%;
 }
-
+.chatbubble {
+    position: relative;
+    width: 240px;
+    height: 50px;
+    padding: 5px 0px 0px 5px;
+    background: #FFFFFF;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+    border: #7F7F7F solid 1px;
+    margin: 5px;
+    margin-right: 20px;
+}
+.chatbubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 11px 0 11px 9px;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -9px;
+    top: 18px;
+}
+.chatbubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 11px 0 11px 9px;
+    border-color: transparent #7F7F7F;
+    display: block;
+    width: 0;
+    z-index: 0;
+    right: -10px;
+    top: 18px;
+}
+CSS .chatbubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 11px 0 11px 9px;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -9px;
+    top: 18px;
+}
+.avatar {
+    margin-top: 1em;
+    margin-right: 1em;
+    position: relative;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+}
