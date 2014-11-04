@@ -3307,7 +3307,7 @@
                 '<div class="message-text">' + props.text + '</div>' +
                 (props.avatar ? '<div class="message-avatar" style="background-image:url(' + props.avatar + ')"></div>' : '') +
                 '</div>';
-            html2 += '<div class="message-appear"><div style="width:55px; float:right"><img class="avatar" src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650" alt="avatar" /></div><div class="chatbubble" style="float:right">' + props.text + '</div></div>';
+            html2 += '<div class="message-appear"><div style="width:55px; float:right"><img class="avatar" src="' + props.avatar + '" alt="avatar" /></div><div class="chatbubble" style="float:right"><div class="chatname">' + props.name + ':</div>' + props.text + '</div></div>';
             if (newOnTop) messages.prepend(html);
             else messages.append(html2);
             if (messages.hasClass('messages-auto-layout')) app.updateMessagesLayout(messages);

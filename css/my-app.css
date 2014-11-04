@@ -107,10 +107,9 @@ i.icon.icon-sign {
     border: #7F7F7F solid 1px;
     margin: 5px;
     margin-right: 20px;
-    
-    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .1);
 }
 .chatbubble:after {
     content: '';
@@ -149,6 +148,7 @@ CSS .chatbubble:after {
     top: 18px;
 }
 .avatar {
+    width: 50px;
     margin-top: 1em;
     margin-right: 1em;
     position: relative;
@@ -158,4 +158,9 @@ CSS .chatbubble:after {
     -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
     box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+}
+.chatname {
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 10px
 }
