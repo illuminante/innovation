@@ -43,7 +43,7 @@ function gomessage() {
         avatar: avatar,
         name: name,
         // Day
-        day: !conversationStarted ? 'Today' : false,
+        day: !conversationStarted ? 'Hoje' : false,
         time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
     })
 }
