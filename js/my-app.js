@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
 
-
+    fastClicks: false
 
 });
 
@@ -13,6 +13,13 @@ var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
     dynamicNavbar: true
 
+});
+
+
+navigator.Backbutton.goHome(function () {
+    myApp.alert("Back");
+}, function () {
+    myApp.alert("Back Wrong");
 });
 
 // Conversation flag
@@ -35,8 +42,8 @@ function gomessage() {
     // Avatar and name for received message
     var avatar, name;
     if (messageType === 'sent') {
-        avatar = 'http://lorempixel.com/output/people-q-c-100-100-9.jpg';
-        name = 'Kate';
+        avatar = 'img/user.png';
+        name = 'Usuário';
     }
     // Add message
     myApp.addMessage({

@@ -219,7 +219,7 @@ input[type=radio] {
     height: 1rem;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-40%, -50%);
+    -webkit-transform: translate(-45%, -50%);
     background: #666666;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 100%;
