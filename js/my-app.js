@@ -1,3 +1,16 @@
+// This is your app's init method. Here's an example of how to use it
+function init() {
+    document.addEventListener("deviceready", onDR, false);
+}
+
+function onDR() {
+    document.addEventListener("backbutton", backKeyDown, true);
+    //boot your app...
+}
+
+
+
+
 // Initialize your app
 var myApp = new Framework7({
 
@@ -15,12 +28,15 @@ var mainView = myApp.addView('.view-main', {
 
 });
 
+function backKeyDown() {
+    // do something here if you wish
+    // alert('go back!');
+    mainView.router.back();
 
-navigator.Backbutton.goHome(function () {
-    myApp.alert("Back");
-}, function () {
-    myApp.alert("Back Wrong");
-});
+}
+
+
+
 
 // Conversation flag
 var conversationStarted = false;
