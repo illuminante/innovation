@@ -58,6 +58,16 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="contato.html" class="item-link" onclick="navigator.app.exitApp();">
+                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
+                            <div class="item-inner" style="min-height:54px">
+                                <div class="item-title">Sair</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- Bottom Toolbar-->
@@ -209,8 +219,10 @@
          // Handle the back button
          //
         function onBackKeyDown() {
-            myApp.alert("Back!");
+
+
             mainView.router.back();
+
         }
 
 
