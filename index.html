@@ -8,6 +8,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>3ª da Inovação</title>
     <script type="text/javascript" src="cordova.js"></script>
+
+
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.css">
     <!-- Path to your custom app styles-->
@@ -190,7 +192,27 @@
     <script type="text/javascript" src="js/framework7.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script type="text/javascript" src="js/Backbutton.js"></script>
+    <script>
+        // Wait for device API libraries to load
+         //
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+         // device APIs are available
+         //
+        function onDeviceReady() {
+            // Register the event listener
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+
+         // Handle the back button
+         //
+        function onBackKeyDown() {
+            myApp.alert("Back!");
+            mainView.router.back();
+        }
+    </script>
 </body>
 
 </html>
