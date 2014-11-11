@@ -188,7 +188,7 @@ $$(document).on('deviceready', function () {
 
                 r.get("/me/picture?width=180&height=180")
                     .done(function (data) {
-                        $$('#result').html("facebook: picture, " + r.data.url);
+                        $$('#result').html("facebook: picture, " + data.url);
 
 
                     })
