@@ -5,20 +5,24 @@ var myApp = new Framework7({
 
 });
 
+
+
+
 // Export selectors engine
 var $$ = Dom7;
+
+
 
 // Add view
 var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
-    dynamicNavbar: true
-
+    swipePanel: 'left',
+    domCache: true //enable inline pages
 });
 
 
 
-
-// Conversation flag
+// CHAT
 var conversationStarted = false;
 
 function gomessage() {
@@ -58,40 +62,184 @@ function gomessage() {
 
 
 
-// Callbacks to run specific code for specific pages, for example for About page:
-myApp.onPageInit('about', function (page) {
-    // run createContentPage func after link was clicked
-    $$('.create-page').on('click', function () {
-        createContentPage();
-    });
+
+
+//Callbacks to run specific code for specific pages, for example for About page//
+myApp.onPageInit('perguntas', function (page) {
+
+
+
 });
 
-// Generate dynamic page
-var dynamicPageIndex = 0;
+myApp.onPageInit('enquetes', function (page) {
 
-function createContentPage() {
-    mainView.router.loadContent(
-        '<!-- Top Navbar-->' +
-        '<div class="navbar">' +
-        '  <div class="navbar-inner">' +
-        '    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>' +
-        '    <div class="center sliding">Dynamic Page ' + (++dynamicPageIndex) + '</div>' +
-        '  </div>' +
-        '</div>' +
-        '<div class="pages">' +
-        '  <!-- Page, data-page contains page name-->' +
-        '  <div data-page="dynamic-pages" class="page">' +
-        '    <!-- Scrollable page content-->' +
-        '    <div class="page-content">' +
-        '      <div class="content-block">' +
-        '        <div class="content-block-inner">' +
-        '          <p>Here is a dynamic page created on ' + new Date() + ' !</p>' +
-        '          <p>Go <a href="#" class="back">back</a> or go to <a href="services.html">Services</a>.</p>' +
-        '        </div>' +
-        '      </div>' +
-        '    </div>' +
-        '  </div>' +
-        '</div>'
-    );
-    return;
+
+
+});
+
+myApp.onPageInit('feedback', function (page) {
+
+
+
+});
+
+
+function login() {
+
+
+    var email = $$("#emailtx").val();
+    var senha = $$("#passwordtx").val();
+    var senhasec = calcMD5(senha);
+
+    if (email != " " && senha != " ") {
+
+        $$.getJSON("/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
+            //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+            if (dados.RETORNO != "FAIL") {
+
+                //##### CREATE COOKIE WITH ID  #######///
+                document.cookie = "userID=" + dados[0].iduser;
+                //console.log(dados[0].idpessoa);
+
+                window.location = "index2.html";
+
+            } else {
+
+                myApp.hidePreloader();
+                myApp.alert("E-mail ou senha inválidos", "Erro!");
+
+            }
+        })
+
+    } else {
+
+        myApp.alert("Todos os campos são obrigatórios.");
+
+    }
+
+
+
 }
+
+function newcadastro() {
+    var nome = $$("#nometx").val();
+    var email = $$("#emailtx").val();
+    var senha = $$("#passwordtx").val();
+    var senhasec = calcMD5(senha);
+
+    if (nome != " " && email != " " && senha != " ") {
+
+        $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "", function (dados) {
+            //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+            if (dados.RETORNO != "FAIL") {
+
+                //##### CREATE COOKIE WITH ID  #######///
+                document.cookie = "userID=" + dados[0].iduser;
+                //console.log(dados[0].idpessoa);
+
+                window.location = "index2.html";
+
+            } else {
+
+                myApp.hidePreloader();
+                myApp.alert("E-mail ou senha inválidos", "Erro!");
+
+            }
+        })
+
+    } else {
+
+        myApp.alert("Todos os campos são obrigatórios.");
+
+    }
+
+}
+
+function sendpass() {
+    var emailf = $$("#emailf").val();
+    myApp.hidePreloader();
+    myApp.alert("Senha enviada com sucesso para: " + emailf, "Terça da Inovação", function () {
+        mainView.router.back()
+    });
+
+}
+
+//############################################SOCIAL
+var googleapi = {
+    authorize: function (options) {
+        var deferred = $.Deferred();
+
+        //Build the OAuth consent page URL
+        var authUrl = 'https://accounts.google.com/o/oauth2/auth?' + $.param({
+            client_id: options.client_id,
+            redirect_uri: options.redirect_uri,
+            response_type: 'code',
+            scope: options.scope
+        });
+
+        //Open the OAuth consent page in the InAppBrowser
+        var authWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
+
+        //The recommendation is to use the redirect_uri "urn:ietf:wg:oauth:2.0:oob"
+        //which sets the authorization code in the browser's title. However, we can't
+        //access the title of the InAppBrowser.
+        //
+        //Instead, we pass a bogus redirect_uri of "http://localhost", which means the
+        //authorization code will get set in the url. We can access the url in the
+        //loadstart and loadstop events. So if we bind the loadstart event, we can
+        //find the authorization code and close the InAppBrowser after the user
+        //has granted us access to their data.
+        $$(authWindow).on('loadstart', function (e) {
+            var url = e.originalEvent.url;
+            var code = /\?code=(.+)$/.exec(url);
+            var error = /\?error=(.+)$/.exec(url);
+
+            if (code || error) {
+                //Always close the browser when match is found
+                authWindow.close();
+            }
+
+            if (code) {
+                //Exchange the authorization code for an access token
+                $$.post('https://accounts.google.com/o/oauth2/token', {
+                    code: code[1],
+                    client_id: options.client_id,
+                    client_secret: options.client_secret,
+                    redirect_uri: options.redirect_uri,
+                    grant_type: 'authorization_code'
+                }).done(function (data) {
+                    deferred.resolve(data);
+                }).fail(function (response) {
+                    deferred.reject(response.responseJSON);
+                });
+            } else if (error) {
+                //The user denied access to the app
+                deferred.reject({
+                    error: error[1]
+                });
+            }
+        });
+
+        return deferred.promise();
+    }
+};
+
+$$(document).on('deviceready', function () {
+    var $loginButton = $('#Glogin');
+
+
+    $$loginButton.on('click', function () {
+        googleapi.authorize({
+            client_id: '339237216668-2aq99gfk8s2g3m646tqbu4nmo2e7s5kj.apps.googleusercontent.com',
+            client_secret: 'WDJTpwi25MPvLGifzdu9vrIs',
+            redirect_uri: 'http://localhost',
+            scope: 'https://www.googleapis.com/auth/analytics.readonly'
+        }).done(function (data) {
+            myApp.alert('Access Token: ' + data.access_token);
+        }).fail(function (data) {
+            myApp.alert(data.error);
+        });
+    });
+});

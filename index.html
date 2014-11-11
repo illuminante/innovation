@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>3ª da Inovação</title>
-    <script type="text/javascript" src="cordova.js"></script>
-
+    <title>Terça da Inovação</title>
 
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.css">
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.themes.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
 </head>
@@ -22,47 +22,48 @@
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal" style="background-color:#fff">
+
+    <div class="panel panel-left panel-reveal " style="background-color:#fff">
         <div style="padding:10px">
             <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
                 <img src="img/bigsign.png" />
             </div>
         </div>
-        <div class="list-block" style="margin:0px">
+        <div class="list-block" style="margin:0px;">
             <ul>
                 <li>
-                    <a href="eventos.html" class="item-link" onclick="myApp.closePanel();">
+                    <a href="#cadastro" class="item-link" onclick="myApp.closePanel();">
+                        <div class="item-content" style="background-color:#ccc; color:#fff; font-weight:bold">
+                            <div class="item-inner" style="min-height:54px">
+                                <div class="item-title">Novo Cadastro</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="face.html" class="item-link" onclick="myApp.closePanel();">
                         <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Eventos</div>
+                                <div class="item-title">Facebook</div>
                             </div>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="equipe.html" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#04A576; color:#fff; font-weight:bold">
+                    <a href="twitter.html" class="item-link" onclick="myApp.closePanel();">
+                        <div class="item-content" style="background-color:#2d9fe8; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Quem somos</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="contato.html" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Contato</div>
+                                <div class="item-title">Twitter</div>
                             </div>
                         </div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="contato.html" class="item-link" onclick="navigator.app.exitApp();">
-                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
+                    <a href="#" id="Glogin" class="item-link" onclick="">
+                        <div class="item-content" style="background-color:#dd2d2d; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Sair</div>
+                                <div class="item-title">Google+</div>
                             </div>
                         </div>
                     </a>
@@ -70,166 +71,170 @@
 
             </ul>
         </div>
-        <!-- Bottom Toolbar-->
         <div style="position:absolute;bottom:10px;padding:5px;width:100%">
             <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
                 <img src="img/illulogo.png" />
             </div>
         </div>
     </div>
-    <!-- Right panel with cover effect-->
-    <div class="panel panel-right panel-cover">
-        <div class="content-block">
-            <p>Right panel content goes here</p>
-        </div>
-    </div>
-    <!-- Views-->
+
     <div class="views">
         <!-- Your main view, should have "view-main" class-->
         <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar navbar-bg">
-                <div class="navbar-inner">
-                    <div class="left">
-                        <!-- Left link contains only icon - additional "icon-only" class-->
-                        <a href="#" class="link icon-only"> <i class="icon icon-sign"></i>
-                        </a>
-                    </div>
-                    <div class="center sliding">3ª da Inovação</div>
-                    <div class="right">
-                        <!-- Right link contains only icon - additional "icon-only" class-->
-                        <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
             <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
+            <div class="pages ">
                 <!-- Page, data-page contains page name-->
                 <div data-page="index" class="page">
                     <!-- Scrollable page content-->
                     <div class="page-content" style="background-color:#fff">
-                        <!-- Slider container -->
-                        <div class="slider-container slider-init" style="height:auto; margin-top:10px" data-speed="400" data-autoplay="3000" data-loop="true">
-                            <!-- Slides wrapper -->
-                            <div class="slider-wrapper">
-                                <!-- Slides -->
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider1.png" style="width:100%;height:auto;" />
+                        <div class="logomarca">
+                            <div style="padding:10px">
+                                <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
+                                    <img src="img/bigsign.png" />
                                 </div>
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider2.png" style="width:100%;height:auto;" />
-                                </div>
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider3.png" style="width:100%;height:auto;" />
-                                </div>
-
                             </div>
-                            <!-- Pagination, if required data-pagination=".slider-pagination"
-                    <div class="slider-pagination"></div>-->
                         </div>
-                        <div class="titulo-evento">INOVAÇÃO E EMPREENDEDORISMO</div>
-                        <div class="list-block" style="margin:0px">
+                        <div class="list-block inset theme-gray">
                             <ul>
                                 <li>
-                                    <a href="evento.html" class="item-link">
-                                        <div class="item-content" style="background-color:#ED1171; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Evento</div>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="email" id="emailtx" placeholder="E-mail">
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </li>
                                 <li>
-                                    <a href="palestrantes.html" class="item-link">
-                                        <div class="item-content" style="background-color:#91298D; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Palestrantes</div>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="password" id="passwordtx" placeholder="Senha">
                                             </div>
                                         </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="perguntas.html" class="item-link">
-                                        <div class="item-content" style="background-color:#4B3192; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Perguntas</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="enquetes.html" class="item-link">
-                                        <div class="item-content" style="background-color:#1481C7; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Enquetes</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="feedback.html" class="item-link">
-                                        <div class="item-content" style="background-color:#2AABE2; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Feedback</div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    </div>
                                 </li>
                             </ul>
+                            <p>
+                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); login();">
+                                        Entrar
+                                    </a>
+                            </p>
+
+                            <p>
+                                <a class="button button-round" href="#forgot">
+                                        Esqueci a senha 
+                                    </a>
+                            </p>
+                            <p>
+                                <a data-panel="left" class="button button-round open-panel">
+                                        Outras formas de login 
+                                </a>
+                            </p>
                         </div>
 
                     </div>
-
                 </div>
+
+
+                <div data-page="forgot" class="page cached">
+                    <!-- Scrollable page content-->
+                    <div class="page-content" style="background-color:#fff">
+                        <div class="logomarca"></div>
+                        <div class="list-block inset theme-gray">
+
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="email" id="emailf" placeholder="E-mail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <p>
+                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); sendpass();">
+                                        Enviar senha
+                                    </a>
+                            </p>
+
+                            <p>
+                                <a href="#index" class="back button button-round">
+                                        voltar 
+                                    </a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="page cached" data-page="cadastro">
+                    <div class="page-content" style="background-color:#fff">
+                        <div class="list-block inset theme-gray">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="email" id="nometx" placeholder="Nome">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="email" id="emailtx" placeholder="E-mail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-input">
+                                                <input type="password" id="passwordtx" placeholder="Senha">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p>
+                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader();  mainView.router.back(); newcadastro();">
+                                        Cadastrar
+                                    </a>
+                            </p>
+                            <p>
+                                <a href="#index" class="back button button-round">
+                                        voltar 
+                                    </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!--<div class="toolbar">
-                <div class="toolbar-inner">
-                    
 
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
 
-                </div>
             </div>
-             Bottom Toolbar
-            <div style="position:absolute;bottom:10px;width:100%;">
-                <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
-                    <img src="img/illulogo.png" />
-                </div>
-            </div>-->
         </div>
+
+
     </div>
+    <script type="text/javascript" src="cordova.js"></script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script>
-        // Wait for device API libraries to load
-         //
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-
-         // device APIs are available
-         //
-        function onDeviceReady() {
-            // Register the event listener
-            document.addEventListener("backbutton", onBackKeyDown, false);
-        }
-
-         // Handle the back button
-         //
-        function onBackKeyDown() {
-
-
-            mainView.router.back();
-
-        }
-
-
-        onLoad();
-    </script>
-
-
 </body>
 
 </html>
