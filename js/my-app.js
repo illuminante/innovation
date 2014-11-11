@@ -227,10 +227,8 @@ var googleapi = {
 };
 
 $$(document).on('deviceready', function () {
-    var $loginButton = $('#Glogin');
 
-
-    $$loginButton.on('click', function () {
+    $('#Glogin').on('click', function () {
         googleapi.authorize({
             client_id: '339237216668-2aq99gfk8s2g3m646tqbu4nmo2e7s5kj.apps.googleusercontent.com',
             client_secret: 'WDJTpwi25MPvLGifzdu9vrIs',
