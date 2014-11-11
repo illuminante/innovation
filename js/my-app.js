@@ -182,13 +182,13 @@ $$(document).on('deviceready', function () {
                 // the access_token is available via r.access_token
                 // but the http functions automagically wrap the jquery calls
                 r.me().done(function (data) {
-                    myApp.alert(data.firstname + " " + data.lastname + " " + data.email + " " + data.user_photos);
+                    myApp.alert(data.firstname + " " + data.lastname + " " + data.email);
                     // do something with `data`, e.g. print data.name
                 })
 
                 r.get("/me/picture?width=180&height=180")
                     .done(function (data) {
-                        $$('#result').html("facebook: Hello, " + data.name + " your email:" + data.email + " !" + "image:" + data.url);
+                        $$('#result').html("facebook: picture, " + r.data.url);
 
 
                     })
