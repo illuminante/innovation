@@ -181,6 +181,11 @@ $$(document).on('deviceready', function () {
             .done(function (r) {
                 // the access_token is available via r.access_token
                 // but the http functions automagically wrap the jquery calls
+                r.me().done(function (data) {
+                    myApp.alert(data);
+                    // do something with `data`, e.g. print data.name
+                })
+
                 r.get('/me')
                     .done(function (data) {
                         $$('#result').html("facebook: Hello, " + data.name + "your email:" + data.email + " !");
@@ -204,6 +209,11 @@ $$(document).on('deviceready', function () {
             .done(function (r) {
                 // the access_token is available via r.access_token
                 // but the http functions automagically wrap the jquery calls
+                r.me().done(function (data) {
+                    myApp.alert(data);
+                    // do something with `data`, e.g. print data.name
+                })
+
                 r.get('/1.1/account/verify_credentials.json')
                     .done(function (data) {
                         $$('#result').html("twitter: Hello, " + data.name + "your email:" + data.email + " !");
