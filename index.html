@@ -17,6 +17,26 @@
 </head>
 
 <body>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '780212862048002',
+                xfbml: true,
+                version: 'v2.1'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
@@ -60,7 +80,7 @@
                 </li>
 
                 <li>
-                    <a href="#" id="Glogin" class="item-link">
+                    <a href="#" onclick="FB.login();" class="item-link">
                         <div class="item-content" style="background-color:#dd2d2d; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
                                 <div class="item-title">Google+</div>

@@ -182,6 +182,8 @@ $$(document).on('deviceready', function () {
                 r.get('/me')
                     .done(function (data) {
                         $$('#result').html("facebook: Hello, " + data.name + " !");
+
+
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
                         $$('#result').html("req error: " + textStatus);
@@ -210,4 +212,20 @@ $$(document).on('deviceready', function () {
                 $$('#result').html('error: ' + e.message);
             });
     });
+});
+
+FB.login(function (response) {
+    if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        myApp.alert("Connected");
+    } else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        myApp.alert("Not Authorized");
+    } else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        myApp.alert("Not Connected");
+    }
+}, {
+    scope: 'public_profile,email'
 });
