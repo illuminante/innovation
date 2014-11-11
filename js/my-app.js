@@ -186,7 +186,7 @@ $$(document).on('deviceready', function () {
                     // do something with `data`, e.g. print data.name
                 })
 
-                r.get("/me/picture?width=180&height=180")
+                r.get('/me', '{fields:"picture"}')
                     .done(function (data) {
                         $$('#result').html("facebook: picture, " + data.url);
 
