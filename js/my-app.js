@@ -170,40 +170,47 @@ function sendpass() {
 //############################################SOCIAL
 
 $$(document).on('deviceready', function () {
-    OAuth.initialize('VASu5JaUudJ0zG2ar-1j1duUYso');
+        OAuth.initialize('VASu5JaUudJ0zG2ar-1j1duUYso');
 
-    $$('#fb-connect').on('touchstart', function () {
-        $$('#result').html("");
+        $$('#fb-connect').on('touchstart', function () {
+                $$('#result').html("");
 
-        OAuth.popup('facebook', {
-            cache: true
-        })
-            .done(function (r) {
-                // the access_token is available via r.access_token
-                // but the http functions automagically wrap the jquery calls
-                r.me().done(function (data) {
-                    myApp.alert(data.firstname + " " + data.lastname + " " + data.email);
-                    // do something with `data`, e.g. print data.name
+                OAuth.popup('facebook', {
+                    cache: true
                 })
+                    .done(function (r) {
+                            // the access_token is available via r.access_token
+                            // but the http functions automagically wrap the jquery calls
+                            r.me().done(function (data) {
+                                myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
+                                // do something with `data`, e.g. print data.name
+                            })
 
-                r.get('/me', '{fields:"picture"}')
-                    .done(function (data) {
-                        $$('#result').html("facebook: picture, " + data.url);
+                            r.get('/me')
+                                .done(function (data) {
+                                        $$('#result').html('<img src="https://graph.facebook.com/' + data.id + '/picture">");
 
 
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result').html("req error: " + textStatus);
+                        $$('#
+                                            result ').html("req error: " + textStatus);
                     });
             })
             .fail(function (e) {
-                $$('#result').html('error: ' + e.message);
+                $$('#
+                                            result ').html('
+                                            error: ' + e.message);
             });
     });
 
-    $$('#tw-connect').on('touchstart', function () {
-        $$('#result').html("");
-        OAuth.popup('twitter', {
+    $$('#
+                                            tw - connect ').on('
+                                            touchstart ', function () {
+        $$('#
+                                            result ').html("");
+        OAuth.popup('
+                                            twitter ', {
             cache: true
         })
             .done(function (r) {
@@ -214,16 +221,20 @@ $$(document).on('deviceready', function () {
                     // do something with `data`, e.g. print data.name
                 })
 
-                r.get('/1.1/account/verify_credentials.json')
+                r.get(' / 1.1 / account / verify_credentials.json ')
                     .done(function (data) {
-                        $$('#result').html("twitter: Hello, " + data.name + "your email:" + data.email + " !");
+                        $$('#
+                                            result ').html("twitter: Hello, " + data.name + "your email:" + data.email + " !");
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result').html("req error: " + textStatus);
+                        $$('#
+                                            result ').html("req error: " + textStatus);
                     });
             })
             .fail(function (e) {
-                $$('#result').html('error: ' + e.message);
+                $$('#
+                                            result ').html('
+                                            error: ' + e.message);
             });
     });
 });
