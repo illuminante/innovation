@@ -193,16 +193,17 @@ $$(document).on('deviceready', function () {
 
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result ').html("req error: " + textStatus);
+                        $$('#result').html("req error: " + textStatus);
                     });
             })
             .fail(function (e) {
-                $$('#result ').html('error: ' + e.message);
+                $$('#result').html('error: ' + e.message);
             });
     });
 
     $$('#gg-connect').on('touchstart', function () {
-        $$('#result ').html("");
+
+        $$('#result').html("");
         OAuth.popup('google', {
             cache: true
         })
@@ -213,14 +214,14 @@ $$(document).on('deviceready', function () {
                 r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
                     .done(function (data) {
                         myApp.alert(data.name + " " + data.email);
-                        $$('#result ').html('<img src="' + data.picture + '">');
+                        $$('#result').html('<img src="' + data.picture + '">');
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result ').html("req error: " + textStatus);
+                        $$('#result').html("req error: " + textStatus);
                     });
             })
             .fail(function (e) {
-                $$('#result ').html('error: ' + e.message);
+                $$('#result').html('error: ' + e.message);
             });
     });
 });
