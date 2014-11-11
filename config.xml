@@ -7,6 +7,8 @@
     <author email="contato@illuminante.org.br" href="http://www.illuminante.org.br">
         Illuminante
     </author>
+
+
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.5.0" />
     <preference name="orientation" value="default" />
@@ -25,6 +27,7 @@
     <preference name="android-installLocation" value="auto" />
 
 
+    <gap:plugin name="com.oauthio.plugins.oauthio" version="0.2.4" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.file" />

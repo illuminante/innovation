@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="face.html" class="item-link" onclick="myApp.closePanel();">
+                    <a id="fb-connect" href="#" class="item-link" onclick="myApp.closePanel();">
                         <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
                                 <div class="item-title">Facebook</div>
@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="twitter.html" class="item-link" onclick="myApp.closePanel();">
+                    <a id="tw-connect" href="#" class="item-link" onclick="myApp.closePanel();">
                         <div class="item-content" style="background-color:#2d9fe8; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
                                 <div class="item-title">Twitter</div>
@@ -60,7 +60,7 @@
                 </li>
 
                 <li>
-                    <a href="#" id="Glogin" class="item-link" onclick="">
+                    <a href="#" id="Glogin" class="item-link">
                         <div class="item-content" style="background-color:#dd2d2d; color:#fff; font-weight:bold">
                             <div class="item-inner" style="min-height:54px">
                                 <div class="item-title">Google+</div>
@@ -132,6 +132,9 @@
                                 </a>
                             </p>
                         </div>
+
+
+                        <p id="result"></p>
 
                     </div>
                 </div>
@@ -229,7 +232,7 @@
 
 
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <!-- Path to your app js-->
