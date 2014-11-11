@@ -28,7 +28,7 @@
 
 
     <gap:plugin name="com.oauthio.plugins.oauthio" version="0.2.4" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
+
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
