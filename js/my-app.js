@@ -201,22 +201,19 @@ $$(document).on('deviceready', function () {
             });
     });
 
-    $$('#tw - connect ').on('touchstart ', function () {
+    $$('#gg-connect').on('touchstart', function () {
         $$('#result ').html("");
-        OAuth.popup('twitter ', {
+        OAuth.popup('google', {
             cache: true
         })
             .done(function (r) {
                 // the access_token is available via r.access_token
                 // but the http functions automagically wrap the jquery calls
-                r.me().done(function (data) {
-                    myApp.alert(data);
-                    // do something with `data`, e.g. print data.name
-                })
 
-                r.get(' / 1.1 / account / verify_credentials.json ')
+                r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
                     .done(function (data) {
-                        $$('#result ').html("twitter: Hello, " + data.name + "your email:" + data.email + " !");
+                        myApp.alert(data.name + " " + data.email);
+                        $$('#result ').html('<img src="' + data.picture + '">');
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
                         $$('#result ').html("req error: " + textStatus);
