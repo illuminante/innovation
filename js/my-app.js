@@ -157,14 +157,14 @@ document.querySelector( "form" ).addEventListener( "submit", function( event ) {
 });
 
 function newcadastro() {
-
+    myApp.hidePreloader();
     var nome = $$("#nometx").val();
     var email = $$("#emailtx").val();
-    var senha = $$("#passwordtx").val();
+    var senha = $$("#passtx").val();
     var senha2 = $$("#confpasswordtx").val();
+    
 
-
-    if(senha != senha2){
+   if(senha != senha2){
         myApp.hidePreloader();
         $$("#passwordtx").val("");
         $$("#confpasswordtx").val("");
@@ -173,7 +173,7 @@ function newcadastro() {
 
         return false;
     }
-
+    
     var senhasec = calcMD5(senha);
 
     $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "&avatar=/img/user.png&tipo=normal", function (dados) {
