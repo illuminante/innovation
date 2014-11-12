@@ -159,7 +159,7 @@ document.querySelector( "form" ).addEventListener( "submit", function( event ) {
 function newcadastro() {
     myApp.hidePreloader();
     var nome = $$("#nometx").val();
-    var email = $$("#emailtx").val();
+    var email = $$("#emailcadtx").val();
     var senha = $$("#passtx").val();
     var senha2 = $$("#confpasswordtx").val();
     
