@@ -228,7 +228,7 @@ Bottom Toolbar
                 
                 
                 var wpage = $$('.page').attr("data-page"); 
-                myApp.alert(wpage);
+               // myApp.alert(wpage);
                 if(wpage === "index"){
                     var count = $$("#countp");
                     var times = count.val();
@@ -237,7 +237,7 @@ Bottom Toolbar
                         navigator.app.exitApp();
                     }else{
                         myApp.closePanel();
-                        count.val(times + 1);
+                        count.val(times++);
                     }
                 }
                 mainView.router.back();
