@@ -295,9 +295,11 @@ fjs.parentNode.insertBefore(js, fjs);
             //
             function onBackKeyDown() {
 
-
+              if($$(".panel-left").hasClass("active")){
+                            myApp.closePanel();
+              }else{
                 mainView.router.back();
-
+              }
             }
 
 
