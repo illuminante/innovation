@@ -225,21 +225,29 @@ Bottom Toolbar
             // Handle the back button
             //
             function onBackKeyDown() {
-                
-                
+
+
                 var wpage = $$('.page').attr("data-page"); 
-               // myApp.alert(wpage);
+                // myApp.alert(wpage);
                 if(wpage === "index"){
                     var count = $$("#countp");
                     var times = count.val();
-                    myApp.alert(times);
-                    if(times == 2){
-                        navigator.app.exitApp();
+
+                    if(times == 1){
+                        if($$(".panel-left").hasClass("active")){
+                            myApp.closePanel();
+                        }else{
+                            navigator.app.exitApp();
+                        }
                     }else{
-                        myApp.closePanel();
-                        var one = 1;
-                        var re = parseInt(times) + one;
-                        count.val(re);
+
+                        if($$(".panel-left").hasClass("active")){
+                            myApp.closePanel();
+                        }else{
+                            var one = 1;
+                            var re = parseInt(times) + one;
+                            count.val(re);
+                        }
                     }
                 }
                 mainView.router.back();
