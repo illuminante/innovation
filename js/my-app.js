@@ -176,7 +176,7 @@ function newcadastro() {
 
     var senhasec = calcMD5(senha);
 
-    $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec "&avatar=/img/user.png&tipo=normal", function (dados) {
+    $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "&avatar=/img/user.png&tipo=normal", function (dados) {
         //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
 
         if (dados.RETORNO != "FAIL") {
