@@ -224,11 +224,13 @@ Bottom Toolbar
 
             // Handle the back button
             //
+           
+            
             function onBackKeyDown() {
 
 
-                var wpage = $$('.page').attr("data-page"); 
-                // myApp.alert(wpage);
+                var wpage = $$('.page-on-center').attr("data-page"); 
+                //myApp.alert(wpage);
                 if(wpage === "index"){
                     var count = $$("#countp");
                     var times = count.val();
