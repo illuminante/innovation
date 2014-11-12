@@ -237,7 +237,9 @@ Bottom Toolbar
                         navigator.app.exitApp();
                     }else{
                         myApp.closePanel();
-                        count.val(times++);
+                        var one = 1;
+                        var re = times + one;
+                        count.val(re);
                     }
                 }
                 mainView.router.back();
