@@ -1,239 +1,255 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>3ª da Inovação</title>
-    <script type="text/javascript" src="cordova.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>3ª da Inovação</title>
+        <script type="text/javascript" src="cordova.js"></script>
 
 
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-</head>
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.css">
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+    </head>
 
-<body>
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal" style="background-color:#fff">
-        <div style="padding:10px">
-            <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
-                <img src="img/bigsign.png" />
+    <body>
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-reveal" style="background-color:#fff">
+            <div style="padding:10px">
+                <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
+                    <img src="img/bigsign.png" />
+                </div>
             </div>
-        </div>
-        <div class="list-block" style="margin:0px">
-            <ul>
-                <li>
-                    <a href="eventos.html" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Eventos</div>
+            <div class="list-block" style="margin:0px">
+                <ul>
+                    <li>
+                        <a href="eventos.html" class="item-link" onclick="myApp.closePanel();">
+                            <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Eventos</div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="equipe.html" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#04A576; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Quem somos</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="contato.html" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Contato</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="contato.html" class="item-link" onclick="navigator.app.exitApp();">
-                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Sair</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <!-- Bottom Toolbar-->
-        <div style="position:absolute;bottom:10px;padding:5px;width:100%">
-            <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
-                <img src="img/illulogo.png" />
-            </div>
-        </div>
-    </div>
-    <!-- Right panel with cover effect-->
-    <div class="panel panel-right panel-cover">
-        <div class="content-block">
-            <p>Right panel content goes here</p>
-        </div>
-    </div>
-    
-    
-    <!-- Views-->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class-->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar navbar-bg">
-                <div class="navbar-inner">
-                    <div class="left">
-                         <!-- Right link contains only icon - additional "icon-only" class-->
-                        <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i>
                         </a>
-                        
-                    </div>
-                    <div class="center sliding">3ª da Inovação</div>
-                    <div class="right">
-                       <!-- Left link contains only icon - additional "icon-only" class-->
-                        <a href="#" class="link icon-only"> <i class="icon icon-sign"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-                <!-- Page, data-page contains page name-->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content-->
-                    <div class="page-content" style="background-color:#fff">
-                        <!-- Slider container -->
-                        <div class="slider-container slider-init" style="height:auto; margin-top:10px" data-speed="400" data-autoplay="3000" data-loop="true">
-                            <!-- Slides wrapper -->
-                            <div class="slider-wrapper">
-                                <!-- Slides -->
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider1.png" style="width:100%;height:auto;" />
+                    </li>
+                    <li>
+                        <a href="equipe.html" class="item-link" onclick="myApp.closePanel();">
+                            <div class="item-content" style="background-color:#04A576; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Quem somos</div>
                                 </div>
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider2.png" style="width:100%;height:auto;" />
-                                </div>
-                                <div class="slider-slide" style="background-color:#0956A6;">
-                                    <img src="img/slider3.png" style="width:100%;height:auto;" />
-                                </div>
-
                             </div>
-                            <!-- Pagination, if required data-pagination=".slider-pagination"
-                    <div class="slider-pagination"></div>-->
-                        </div>
-                        <div class="titulo-evento">INOVAÇÃO E EMPREENDEDORISMO</div>
-                        <div class="list-block" style="margin:0px">
-                            <ul>
-                                <li>
-                                    <a href="evento.html" class="item-link">
-                                        <div class="item-content" style="background-color:#ED1171; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Evento</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="palestrantes.html" class="item-link">
-                                        <div class="item-content" style="background-color:#91298D; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Palestrantes</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="perguntas.html" class="item-link">
-                                        <div class="item-content" style="background-color:#4B3192; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Perguntas</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="enquetes.html" class="item-link">
-                                        <div class="item-content" style="background-color:#1481C7; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Enquetes</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="feedback.html" class="item-link">
-                                        <div class="item-content" style="background-color:#2AABE2; color:#fff; font-weight:bold;min-height:54px">
-                                            <div class="item-inner" style="min-height:54px">
-                                                <div class="item-title">Feedback</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contato.html" class="item-link" onclick="myApp.closePanel();">
+                            <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Contato</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
 
-                    </div>
+                    <li>
+                        <a href="contato.html" class="item-link" onclick="navigator.app.exitApp();">
+                            <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Sair</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
 
-                </div>
+                </ul>
             </div>
-            <!--<div class="toolbar">
-                <div class="toolbar-inner">
-                    
-
-
-                </div>
-            </div>
-             Bottom Toolbar
-            <div style="position:absolute;bottom:10px;width:100%;">
+            <!-- Bottom Toolbar-->
+            <div style="position:absolute;bottom:10px;padding:5px;width:100%">
                 <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
                     <img src="img/illulogo.png" />
                 </div>
-            </div>-->
+            </div>
         </div>
-    </div>
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/my-app.js"></script>
-    <script>
-        // Wait for device API libraries to load
-         //
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-
-         // device APIs are available
-         //
-        function onDeviceReady() {
-            // Register the event listener
-            document.addEventListener("backbutton", onBackKeyDown, false);
-        }
-
-         // Handle the back button
-         //
-        function onBackKeyDown() {
+        <!-- Right panel with cover effect-->
+        <div class="panel panel-right panel-cover">
+            <div class="content-block">
+                <p>Right panel content goes here</p>
+            </div>
+        </div>
 
 
-            mainView.router.back();
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Top Navbar-->
+                <div class="navbar navbar-bg">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <!-- Right link contains only icon - additional "icon-only" class-->
+                            <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i>
+                            </a>
 
-        }
+                        </div>
+                        <div class="center sliding">3ª da Inovação</div>
+                        <div class="right">
+                            <!-- Left link contains only icon - additional "icon-only" class-->
+                            <a href="#" class="link icon-only"> <i class="icon icon-sign"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages navbar-through toolbar-through">
+                    <!-- Page, data-page contains page name-->
+                    <div data-page="index" class="page">
+                        <input id="countp" name="countp" type="hidden" />
+                        <!-- Scrollable page content-->
+                        <div class="page-content" style="background-color:#fff">
+                            <!-- Slider container -->
+                            <div class="slider-container slider-init" style="height:auto; margin-top:10px" data-speed="400" data-autoplay="3000" data-loop="true">
+                                <!-- Slides wrapper -->
+                                <div class="slider-wrapper">
+                                    <!-- Slides -->
+                                    <div class="slider-slide" style="background-color:#0956A6;">
+                                        <img src="img/slider1.png" style="width:100%;height:auto;" />
+                                    </div>
+                                    <div class="slider-slide" style="background-color:#0956A6;">
+                                        <img src="img/slider2.png" style="width:100%;height:auto;" />
+                                    </div>
+                                    <div class="slider-slide" style="background-color:#0956A6;">
+                                        <img src="img/slider3.png" style="width:100%;height:auto;" />
+                                    </div>
+
+                                </div>
+                                <!-- Pagination, if required data-pagination=".slider-pagination"
+<div class="slider-pagination"></div>-->
+                            </div>
+                            <div class="titulo-evento">INOVAÇÃO E EMPREENDEDORISMO</div>
+                            <div class="list-block" style="margin:0px">
+                                <ul>
+                                    <li>
+                                        <a href="evento.html" class="item-link">
+                                            <div class="item-content" style="background-color:#ED1171; color:#fff; font-weight:bold;min-height:54px">
+                                                <div class="item-inner" style="min-height:54px">
+                                                    <div class="item-title">Evento</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="palestrantes.html" class="item-link">
+                                            <div class="item-content" style="background-color:#91298D; color:#fff; font-weight:bold;min-height:54px">
+                                                <div class="item-inner" style="min-height:54px">
+                                                    <div class="item-title">Palestrantes</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="perguntas.html" class="item-link">
+                                            <div class="item-content" style="background-color:#4B3192; color:#fff; font-weight:bold;min-height:54px">
+                                                <div class="item-inner" style="min-height:54px">
+                                                    <div class="item-title">Perguntas</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="enquetes.html" class="item-link">
+                                            <div class="item-content" style="background-color:#1481C7; color:#fff; font-weight:bold;min-height:54px">
+                                                <div class="item-inner" style="min-height:54px">
+                                                    <div class="item-title">Enquetes</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="feedback.html" class="item-link">
+                                            <div class="item-content" style="background-color:#2AABE2; color:#fff; font-weight:bold;min-height:54px">
+                                                <div class="item-inner" style="min-height:54px">
+                                                    <div class="item-title">Feedback</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--<div class="toolbar">
+<div class="toolbar-inner">
 
 
-        onLoad();
-    </script>
+
+</div>
+</div>
+Bottom Toolbar
+<div style="position:absolute;bottom:10px;width:100%;">
+<div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
+<img src="img/illulogo.png" />
+</div>
+</div>-->
+
+            </div>
+        </div>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js"></script>
+        <script>
+            // Wait for device API libraries to load
+            //
+            function onLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                // Register the event listener
+                document.addEventListener("backbutton", onBackKeyDown, false);
+            }
+
+            // Handle the back button
+            //
+            function onBackKeyDown() {
+                
+                
+                var wpage = $$('.page').attr("data-page"); 
+                
+                if(wpage === "index"){
+                    var count = $$("#countp");
+                    var times = count.val();
+
+                    if(times == 2){
+                        navigator.app.exitApp();
+                    }else{
+                        myApp.closePanel();
+                        count.val(times + 1);
+                    }
+                }
+                mainView.router.back();
+
+            }
 
 
-</body>
+            onLoad();
+            $$("#countp").val(0);
+        </script>
+
+
+    </body>
 
 </html>
