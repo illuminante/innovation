@@ -76,14 +76,12 @@ function getCookie(userID) {
 //Callbacks to run specific code for specific pages, for example for About page//
 myApp.onPageInit('login', function (page) {
 
-var userid = getCookie("userid");
-    myApp.alert(userid);
+
 
 });
 myApp.onPageInit('index', function (page) {
 
-var userid = getCookie("userid");
-    myApp.alert(userid);
+
 
 });
 myApp.onPageInit('perguntas', function (page) {
@@ -270,9 +268,14 @@ $$(document).on('deviceready', function () {
 
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
+                        
+                        var userid = getCookie("userID");
+                         myApp.alert(userid);
                         //console.log(dados[0].idpessoa);
 
+                         setTimeout(function(){
                         window.location = "index2.html";
+                           }, 3000);
 
                     } else{
 
@@ -283,7 +286,7 @@ $$(document).on('deviceready', function () {
 
                                 //##### CREATE COOKIE WITH ID  #######///
                                 document.cookie = "userID=" + dados[0].iduser;
-                                myApp.alert(dados[0].iduser);
+                                
                                 //console.log(dados[0].idpessoa);
 
                                 window.location = "index2.html";
@@ -342,9 +345,13 @@ $$(document).on('deviceready', function () {
 
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
-                        //console.log(dados[0].idpessoa);
-
+                        var userid = getCookie("userID");
+                        myApp.alert(userid);
+                        
+                        
+                       setTimeout(function(){
                         window.location = "index2.html";
+                           }, 3000);
 
                     } else{
 
@@ -355,7 +362,7 @@ $$(document).on('deviceready', function () {
 
                                 //##### CREATE COOKIE WITH ID  #######///
                                 document.cookie = "userID=" + dados[0].iduser;
-                                myApp.alert(dados[0].iduser);
+                               // myApp.alert(dados[0].iduser);
                                 //console.log(dados[0].idpessoa);
 
                                 window.location = "index2.html";
