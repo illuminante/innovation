@@ -228,11 +228,11 @@ Bottom Toolbar
                 
                 
                 var wpage = $$('.page').attr("data-page"); 
-                
+                myApp.alert(wpage);
                 if(wpage === "index"){
                     var count = $$("#countp");
                     var times = count.val();
-
+                    myApp.alert(times);
                     if(times == 2){
                         navigator.app.exitApp();
                     }else{
