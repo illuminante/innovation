@@ -223,7 +223,7 @@ $$(document).on('deviceready', function () {
     OAuth.initialize('VASu5JaUudJ0zG2ar-1j1duUYso');
 
     $$('#fb-connect').on('touchstart', function () {
-        $$('#result').html("");
+       // $$('#result').html("");
 
         OAuth.popup('facebook', {
             cache: true
@@ -232,44 +232,70 @@ $$(document).on('deviceready', function () {
             // the access_token is available via r.access_token
             // but the http functions automagically wrap the jquery calls
             r.me().done(function (data) {
-                myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
+                // myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
                 // do something with `data`, e.g. print data.name
 
-                $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=facebook&avatar=https://graph.facebook.com/" + data.id + "/picture&tipo=normal", function (dados) {
-                    //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+                var email = data.email;
+                var senha = "facebook";
+                var senhasec = calcMD5(senha);
+
+                $$.getJSON("http://illuminante.org.br/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
+
 
                     if (dados.RETORNO != "FAIL") {
 
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
                         //console.log(dados[0].idpessoa);
-                        
+
                         window.location = "index2.html";
 
-                    } else {
+                    } else{
 
-                        myApp.hidePreloader();
-                        myApp.alert("E-mail ou senha inválidos", "Ops!");
+                        $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=" + senhasec + "&avatar=https://graph.facebook.com/" + data.id + "/picture&tipo=facebook", function (dados) {
+                            //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+                            if (dados.RETORNO != "FAIL") {
+
+                                //##### CREATE COOKIE WITH ID  #######///
+                                document.cookie = "userID=" + dados[0].iduser;
+                                myApp.alert(dados[0].iduser);
+                                //console.log(dados[0].idpessoa);
+
+                                window.location = "index2.html";
+
+                            } else {
+
+                                myApp.hidePreloader();
+                                myApp.alert("E-mail ou senha inválidos", "Ops!");
+
+                            }
+                        })
 
                     }
-                })
+
+
+                })    
+
+
+
             })/* r.get('/me')
             .done(function (data) {
                 $$('#result').html('<img src="https://graph.facebook.com/' + data.id + '/picture">');
 
 
             })*/.fail(function (jqXHR, textStatus, errorThrown) {
-                $$('#result').html("req error: " + textStatus);
+                myApp.alert("req error: " + textStatus);
             });
         })
         .fail(function (e) {
-            $$('#result').html('error: ' + e.message);
+            myApp.alert('error: ' + e.message);
         });
     });
 
     $$('#gg-connect').on('touchstart', function () {
 
-        $$('#result').html("");
+       // $$('#result').html("");
         OAuth.popup('google', {
             cache: true
         })
@@ -279,8 +305,55 @@ $$(document).on('deviceready', function () {
 
             r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
             .done(function (data) {
-                myApp.alert(data.name + " " + data.email);
-                $$('#result').html('<img src="' + data.picture + '">');
+               //myApp.alert(data.name + " " + data.email);
+               //$$('#result').html('<img src="' + data.picture + '">');
+                var email = data.email;
+                var senha = "google";
+                var senhasec = calcMD5(senha);
+
+                $$.getJSON("http://illuminante.org.br/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
+
+
+                    if (dados.RETORNO != "FAIL") {
+
+                        //##### CREATE COOKIE WITH ID  #######///
+                        document.cookie = "userID=" + dados[0].iduser;
+                        //console.log(dados[0].idpessoa);
+
+                        window.location = "index2.html";
+
+                    } else{
+
+                        $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=" + senhasec + "&avatar="+ data.picture +"&tipo=google", function (dados) {
+                            //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+                            if (dados.RETORNO != "FAIL") {
+
+                                //##### CREATE COOKIE WITH ID  #######///
+                                document.cookie = "userID=" + dados[0].iduser;
+                                myApp.alert(dados[0].iduser);
+                                //console.log(dados[0].idpessoa);
+
+                                window.location = "index2.html";
+
+                            } else {
+
+                                myApp.hidePreloader();
+                                myApp.alert("E-mail ou senha inválidos", "Ops!");
+
+                            }
+                        })
+
+                    }
+
+
+                })    
+                
+                
+                
+                
+                
+                
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 $$('#result').html("req error: " + textStatus);
