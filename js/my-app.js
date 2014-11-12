@@ -93,7 +93,7 @@ function login() {
 
     if (email != "" && senha != "") {
 
-        $$.getJSON("/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
+        $$.getJSON("http://illuminante.org.br/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
             //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
 
             if (dados.RETORNO != "FAIL") {
@@ -176,7 +176,7 @@ function newcadastro() {
 
     var senhasec = calcMD5(senha);
 
-    $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "&avatar=/img/user.png&tipo=normal", function (dados) {
+    $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "&avatar=/img/user.png&tipo=normal", function (dados) {
         //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
 
         if (dados.RETORNO != "FAIL") {
@@ -235,7 +235,7 @@ $$(document).on('deviceready', function () {
                 myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
                 // do something with `data`, e.g. print data.name
 
-                $$.getJSON("/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=facebook&avatar=https://graph.facebook.com/" + data.id + "/picture&tipo=normal", function (dados) {
+                $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=facebook&avatar=https://graph.facebook.com/" + data.id + "/picture&tipo=normal", function (dados) {
                     //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
 
                     if (dados.RETORNO != "FAIL") {
