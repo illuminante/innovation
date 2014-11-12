@@ -1,263 +1,306 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Terça da Inovação</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>Terça da Inovação</title>
 
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.css">
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.themes.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-</head>
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.css">
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.themes.css">
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+    </head>
 
-<body>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '780212862048002',
-                xfbml: true,
-                version: 'v2.1'
-            });
-        };
+    <body>
+        <!--<script>
+window.fbAsyncInit = function () {
+FB.init({
+appId: '780212862048002',
+xfbml: true,
+version: 'v2.1'
+});
+};
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/pt_BR/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
+(function (d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {
+return;
+}
+js = d.createElement(s);
+js.id = id;
+js.src = "//connect.facebook.net/pt_BR/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>-->
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
 
-    <div class="panel panel-left panel-reveal " style="background-color:#fff">
-        <div style="padding:10px">
-            <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
-                <img src="img/bigsign.png" />
+        <div class="panel panel-left panel-reveal " style="background-color:#fff">
+            <div style="padding:10px">
+                <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
+                    <img src="img/bigsign.png" />
+                </div>
             </div>
-        </div>
-        <div class="list-block" style="margin:0px;">
-            <ul>
-                <li>
-                    <a href="#cadastro" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#ccc; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Novo Cadastro</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a id="fb-connect" href="#" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Facebook</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a id="gg-connect" href="#" class="item-link" onclick="myApp.closePanel();">
-                        <div class="item-content" style="background-color:#e83831; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Google</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" class="item-link" onclick="navigator.app.exitApp();">
-                        <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
-                            <div class="item-inner" style="min-height:54px">
-                                <div class="item-title">Sair</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-        <div style="position:absolute;bottom:10px;padding:5px;width:100%">
-            <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
-                <img src="img/illulogo.png" />
-            </div>
-        </div>
-    </div>
-
-    <div class="views">
-        <!-- Your main view, should have "view-main" class-->
-        <div class="view view-main">
-            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages ">
-                <!-- Page, data-page contains page name-->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content-->
-                    <div class="page-content" style="background-color:#fff">
-                        <div class="logomarca">
-                            <div style="padding:10px">
-                                <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
-                                    <img src="img/bigsign.png" />
+            <div class="list-block" style="margin:0px;">
+                <ul>
+                    <li>
+                        <a href="#cadastro" class="item-link" onclick="myApp.closePanel();">
+                            <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Novo Cadastro</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-block inset theme-gray">
-                            <ul>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="email" id="emailtx" placeholder="E-mail">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="password" id="passwordtx" placeholder="Senha">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <p>
-                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); login();">
-                                        Entrar
-                                    </a>
-                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="fb-connect" href="#" class="item-link" onclick="myApp.closePanel(); myApp.showPreloader();">
+                            <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Facebook</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="gg-connect" href="#" class="item-link" onclick="myApp.closePanel(); myApp.showPreloader();">
+                            <div class="item-content" style="background-color:#e83831; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Google</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
 
-                            <p>
-                                <a class="button button-round" href="#forgot">
-                                        Esqueci a senha 
-                                    </a>
-                            </p>
-                            <p>
-                                <a data-panel="left" class="button button-round open-panel">
-                                        Outras formas de login 
-                                </a>
-                            </p>
-                        </div>
+                    <li>
+                        <a href="#" class="item-link" onclick="navigator.app.exitApp();">
+                            <div class="item-content" style="background-color:#ccc; color:#fff; font-weight:bold">
+                                <div class="item-inner" style="min-height:54px">
+                                    <div class="item-title">Sair</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
 
-
-                        <p id="result"></p>
-
-                    </div>
-                </div>
-
-
-                <div data-page="forgot" class="page cached">
-                    <!-- Scrollable page content-->
-                    <div class="page-content" style="background-color:#fff">
-                        <div class="logomarca"></div>
-                        <div class="list-block inset theme-gray">
-
-                            <ul>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="email" id="emailf" placeholder="E-mail">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                            <p>
-                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); sendpass();">
-                                        Enviar senha
-                                    </a>
-                            </p>
-
-                            <p>
-                                <a href="#index" class="back button button-round">
-                                        voltar 
-                                    </a>
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="page cached" data-page="cadastro">
-                    <div class="page-content" style="background-color:#fff">
-                        <div class="list-block inset theme-gray">
-                            <ul>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="email" id="nometx" placeholder="Nome">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="email" id="emailtx" placeholder="E-mail">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-input">
-                                                <input type="password" id="passwordtx" placeholder="Senha">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <p>
-                                <a class="button button-round button-big" onclick="javascript: myApp.showPreloader();  mainView.router.back(); newcadastro();">
-                                        Cadastrar
-                                    </a>
-                            </p>
-                            <p>
-                                <a href="#index" class="back button button-round">
-                                        voltar 
-                                    </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+                </ul>
             </div>
-
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-
+            <div style="position:absolute;bottom:10px;padding:5px;width:100%">
+                <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
+                    <img src="img/illulogo.png" />
+                </div>
             </div>
         </div>
 
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages ">
+                    <!-- Page, data-page contains page name-->
+                    <div data-page="index" class="page">
+                        <!-- Scrollable page content-->
+                        <div class="page-content" style="background-color:#fff">
+                            <div class="logomarca">
+                                <div style="padding:10px">
+                                    <div style="margin-left:auto; margin-right:auto;width:83px;height:103px">
+                                        <img src="img/bigsign.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-block inset theme-gray">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="email" id="emailtx" placeholder="E-mail">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="password" id="passwordtx" placeholder="Senha">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <p>
+                                    <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); login();">
+                                        Entrar
+                                    </a>
+                                </p>
 
-    </div>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/md5.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
-</body>
+                                <p>
+                                    <a class="button button-round" href="#forgot">
+                                        Esqueci a senha 
+                                    </a>
+                                </p>
+                                <p>
+                                    <a data-panel="left" class="button button-round open-panel">
+                                        Outras formas de login 
+                                    </a>
+                                </p>
+                            </div>
+
+
+                            <p id="result"></p>
+
+                        </div>
+                    </div>
+
+
+                    <div data-page="forgot" class="page cached">
+                        <!-- Scrollable page content-->
+                        <div class="page-content" style="background-color:#fff">
+                            <div class="logomarca"></div>
+                            <div class="list-block inset theme-gray">
+
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="email" id="emailf" placeholder="E-mail">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                                <p>
+                                    <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); sendpass();">
+                                        Enviar senha
+                                    </a>
+                                </p>
+
+                                <p>
+                                    <a href="#index" class="back button button-round">
+                                        voltar 
+                                    </a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="page cached" data-page="cadastro">
+                        <div class="page-content" style="background-color:#fff">
+
+                            <div class="list-block inset theme-gray">
+                                <form id="fcadastro">
+                                    <ul>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-input">
+                                                        <input type="text" id="nometx" placeholder="Nome" name="nometx" data-required-message="Digite seu nome." required autofocus>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-input">
+                                                        <input type="email" id="emailtx" placeholder="E-mail" name="emailtx"  data-required-message="Email inválido."  required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-input">
+                                                        <input type="password" id="passwordtx" placeholder="Senha" name="passwordtx" data-required-message="Senha inválida." required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-input">
+                                                        <input type="password" id="confpasswordtx" placeholder="Confimar Senha" name="confpasswordtx" data-required-message="Confirmação de senha inválida." required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <p>
+                                        <a class="button button-round button-big" onclick="javascript: myApp.showPreloader();   newcadastro();">
+                                            Cadastrar
+                                        </a>
+                                    </p>
+                                </form>
+                               
+
+                                <p>
+                                    <a href="#index" class="back button button-round">
+                                        voltar 
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Toolbar-->
+                <div class="toolbar">
+
+                </div>
+            </div>
+
+
+        </div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/my-app.js"></script>
+
+        <script>
+            // Wait for device API libraries to load
+            //
+            function onLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                // Register the event listener
+                document.addEventListener("backbutton", onBackKeyDown, false);
+            }
+
+            // Handle the back button
+            //
+            function onBackKeyDown() {
+
+
+                mainView.router.back();
+
+            }
+
+
+            onLoad();
+        </script>
+
+    </body>
 
 </html>

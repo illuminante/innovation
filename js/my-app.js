@@ -91,7 +91,7 @@ function login() {
     var senha = $$("#passwordtx").val();
     var senhasec = calcMD5(senha);
 
-    if (email != " " && senha != " ") {
+    if (email != "" && senha != "") {
 
         $$.getJSON("/app/services/lg.php?email=" + email + "&senha=" + senhasec + "", function (dados) {
             //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
@@ -113,8 +113,8 @@ function login() {
         })
 
     } else {
-
-        myApp.alert("Todos os campos são obrigatórios.");
+        myApp.hidePreloader();
+        myApp.alert("Todos os campos são obrigatórios.", "Erro!");
 
     }
 
@@ -122,47 +122,97 @@ function login() {
 
 }
 
+
+function validate() {
+    if ( !this.validity.valid ) {
+
+        myApp.alert(this.getAttribute(this.validity.valueMissing ? "data-required-message" : "data-type-message" ),"Ops!");
+        /*this.classList.add( "invalid" );
+        this.parentNode.appendChild( span );
+        span.classList.add( "error" );*/
+
+    }
+};
+
+var form = document.getElementById( "fcadastro" ),
+    inputs = form.querySelectorAll( "input" );
+
+for ( var i = 0; i < inputs.length; i++ ) {
+    inputs[ i ].addEventListener( "blur", validate );
+    inputs[ i ].addEventListener( "invalid", validate );
+};
+
+// Turn off the bubbles
+form.addEventListener( "invalid", function( event ) {
+    event.preventDefault();
+}, true );
+
+// Support: Safari, iOS Safari, default Android browser
+document.querySelector( "form" ).addEventListener( "submit", function( event ) {
+    if ( this.checkValidity() ) {
+        return true;
+    } else {
+        event.preventDefault();
+    }
+});
+
 function newcadastro() {
+
     var nome = $$("#nometx").val();
     var email = $$("#emailtx").val();
     var senha = $$("#passwordtx").val();
-    var senhasec = calcMD5(senha);
+    var senha2 = $$("#confpasswordtx").val();
 
-    if (nome != " " && email != " " && senha != " ") {
 
-        $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "", function (dados) {
-            //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+    if(senha != senha2){
+        myApp.hidePreloader();
+        $$("#passwordtx").val("");
+        $$("#confpasswordtx").val("");
 
-            if (dados.RETORNO != "FAIL") {
+        myApp.alert("Senha não confirmada!", "Ops!");
 
-                //##### CREATE COOKIE WITH ID  #######///
-                document.cookie = "userID=" + dados[0].iduser;
-                //console.log(dados[0].idpessoa);
-
-                window.location = "index2.html";
-
-            } else {
-
-                myApp.hidePreloader();
-                myApp.alert("E-mail ou senha inválidos", "Erro!");
-
-            }
-        })
-
-    } else {
-
-        myApp.alert("Todos os campos são obrigatórios.");
-
+        return false;
     }
 
-}
+    var senhasec = calcMD5(senha);
+
+    $$.getJSON("/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec "&avatar=/img/user.png&tipo=normal", function (dados) {
+        //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+        if (dados.RETORNO != "FAIL") {
+
+            //##### CREATE COOKIE WITH ID  #######///
+            document.cookie = "userID=" + dados[0].iduser;
+            //console.log(dados[0].idpessoa);
+            mainView.router.back();
+            window.location = "index2.html";
+
+        } else {
+
+            myApp.hidePreloader();
+            myApp.alert("E-mail ou senha inválidos", "Ops!");
+
+        }
+    })
+
+} 
+
+
+
 
 function sendpass() {
     var emailf = $$("#emailf").val();
-    myApp.hidePreloader();
-    myApp.alert("Senha enviada com sucesso para: " + emailf, "Terça da Inovação", function () {
-        mainView.router.back()
-    });
+
+    if (emailf != ""){
+        myApp.hidePreloader();
+        myApp.alert("Senha enviada com sucesso para: " + emailf, "Terça da Inovação", function () {
+            mainView.router.back()
+        });
+    }else{
+
+        myApp.hidePreloader();
+        myApp.alert("Email inválido.", "Ops!");
+    }
 
 }
 
@@ -178,27 +228,43 @@ $$(document).on('deviceready', function () {
         OAuth.popup('facebook', {
             cache: true
         })
-            .done(function (r) {
-                // the access_token is available via r.access_token
-                // but the http functions automagically wrap the jquery calls
-                r.me().done(function (data) {
-                    myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
-                    // do something with `data`, e.g. print data.name
+        .done(function (r) {
+            // the access_token is available via r.access_token
+            // but the http functions automagically wrap the jquery calls
+            r.me().done(function (data) {
+                myApp.alert("id" + data.id + " " + data.firstname + " " + data.lastname + " " + data.email);
+                // do something with `data`, e.g. print data.name
+
+                $$.getJSON("/app/services/cd.php?nome=" + data.name + "&email=" + data.email + "&senha=facebook&avatar=https://graph.facebook.com/" + data.id + "/picture&tipo=normal", function (dados) {
+                    //$$.getJSON("/sys/lg.php?email=contato@thiago.ws&senha=123456", function(dados) {
+
+                    if (dados.RETORNO != "FAIL") {
+
+                        //##### CREATE COOKIE WITH ID  #######///
+                        document.cookie = "userID=" + dados[0].iduser;
+                        //console.log(dados[0].idpessoa);
+                        
+                        window.location = "index2.html";
+
+                    } else {
+
+                        myApp.hidePreloader();
+                        myApp.alert("E-mail ou senha inválidos", "Ops!");
+
+                    }
                 })
+            })/* r.get('/me')
+            .done(function (data) {
+                $$('#result').html('<img src="https://graph.facebook.com/' + data.id + '/picture">');
 
-                r.get('/me')
-                    .done(function (data) {
-                        $$('#result').html('<img src="https://graph.facebook.com/' + data.id + '/picture">');
 
-
-                    })
-                    .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result').html("req error: " + textStatus);
-                    });
-            })
-            .fail(function (e) {
-                $$('#result').html('error: ' + e.message);
+            })*/.fail(function (jqXHR, textStatus, errorThrown) {
+                $$('#result').html("req error: " + textStatus);
             });
+        })
+        .fail(function (e) {
+            $$('#result').html('error: ' + e.message);
+        });
     });
 
     $$('#gg-connect').on('touchstart', function () {
@@ -207,21 +273,21 @@ $$(document).on('deviceready', function () {
         OAuth.popup('google', {
             cache: true
         })
-            .done(function (r) {
-                // the access_token is available via r.access_token
-                // but the http functions automagically wrap the jquery calls
+        .done(function (r) {
+            // the access_token is available via r.access_token
+            // but the http functions automagically wrap the jquery calls
 
-                r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
-                    .done(function (data) {
-                        myApp.alert(data.name + " " + data.email);
-                        $$('#result').html('<img src="' + data.picture + '">');
-                    })
-                    .fail(function (jqXHR, textStatus, errorThrown) {
-                        $$('#result').html("req error: " + textStatus);
-                    });
+            r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
+            .done(function (data) {
+                myApp.alert(data.name + " " + data.email);
+                $$('#result').html('<img src="' + data.picture + '">');
             })
-            .fail(function (e) {
-                $$('#result').html('error: ' + e.message);
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                $$('#result').html("req error: " + textStatus);
             });
+        })
+        .fail(function (e) {
+            $$('#result').html('error: ' + e.message);
+        });
     });
 });
