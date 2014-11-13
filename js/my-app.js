@@ -270,7 +270,7 @@ $$(document).on('deviceready', function () {
                         document.cookie = "userID=" + dados[0].iduser;
                         myApp.alert(dados[0].iduser);
                         var userid = getCookie("userID");
-                        myApp.alert(userid);
+                        myApp.alert(userid, "cookie");
                         //console.log(dados[0].idpessoa);
 
                        
@@ -347,7 +347,7 @@ $$(document).on('deviceready', function () {
                         document.cookie = "userID=" + dados[0].iduser;
                          myApp.alert(dados[0].iduser);
                         var userid = getCookie("userID");
-                        myApp.alert(userid);
+                        myApp.alert(userid, "cookie");
                         
                         
                       
