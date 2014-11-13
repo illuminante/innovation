@@ -228,16 +228,7 @@ function sendpass() {
 
 //############################################NAVIGATION
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-    }
-    return "";
-}
+
 
 //############################################SOCIAL
 
@@ -267,10 +258,11 @@ $$(document).on('deviceready', function () {
                     if (dados.RETORNO != "FAIL") {
                         myApp.hidePreloader();
                         //##### CREATE COOKIE WITH ID  #######///
-                        document.cookie = "userID=" + dados[0].iduser;
-                        myApp.alert(dados[0].iduser);
-                        var userid = getCookie("userID");
-                        myApp.alert(userid, "cookie");
+                        window.localStorage.setItem("userID", dados[0].iduser);
+                        
+                        var value = window.localStorage.getItem("userID");
+                        
+                        myApp.alert(value, "localstorage");
                         //console.log(dados[0].idpessoa);
 
                        
