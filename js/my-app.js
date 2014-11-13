@@ -79,14 +79,15 @@ myApp.onPageInit('index', function (page) {
 });
 myApp.onPageAfterAnimation('messages', function (page) {
 
-     var idevento = 1;//window.localStorage.getItem("idevento");
+    var idevento = 1;//window.localStorage.getItem("idevento");
     $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "status=1", function (dados) {
-
-        var field = document.getElementById("server-data");
-        
-        var pergs = compiledTemplate(dados);
+    
+       /* var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
        
-        field.innerHTML(pergs);
+    var pergs = compiledTemplate(dados);
+    
+        $$("#server-data").html(pergs).addClass("message-appear");
+    
     })
 
 

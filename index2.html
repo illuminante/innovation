@@ -204,9 +204,10 @@ Bottom Toolbar
 
             </div>
         </div>
-         <script id="template" type="text/template7">
-              
+        <script id="template" type="text/template7">
+              <ul style="text-decoration:none; list-style-type: none; margin:0px; padding:0px;">
                {{#each pergunta}}
+                <li style="height:72px">    
                 <div>
                     <div style="width:55px; float:right">
                         <img class="avatar" src="{{avatar}}" alt="avatar" />
@@ -216,9 +217,10 @@ Bottom Toolbar
                         {{pergunta}}
                     </div>
                 </div>
-                {{#each pergunta}}
-                
-                </script>
+                </li>
+                {{/each}}
+               </ul>
+        </script>
         <!-- Path to Framework7 Library JS-->
         <script type="text/javascript" src="js/framework7.js"></script>
         <!-- Path to your app js-->

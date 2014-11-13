@@ -3297,7 +3297,7 @@
             if (props.day) {
                 html += '<div class="messages-date">' + props.day + (props.time ? ',' : '') + (props.time ? ' <span>' + props.time + '</span>' : '') + '</div>';
 
-                html2 += '<div class="messages-date">' + props.day + (props.time ? ',' : '') + (props.time ? ' <span>' + props.time + '</span>' : '') + '</div>';
+               //html2 += '<div class="messages-date">' + props.day + (props.time ? ',' : '') + (props.time ? ' <span>' + props.time + '</span>' : '') + '</div>';
             }
             var isPic = props.text.indexOf('<img') >= 0 ? 'message-pic' : '';
             var withAvatar = props.avatar ? 'message-with-avatar' : '';
