@@ -265,7 +265,7 @@ $$(document).on('deviceready', function () {
 
 
                     if (dados.RETORNO != "FAIL") {
-
+                        myApp.hidePreloader();
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
                         myApp.alert(dados[0].iduser);
@@ -342,7 +342,7 @@ $$(document).on('deviceready', function () {
 
 
                     if (dados.RETORNO != "FAIL") {
-
+                        myApp.hidePreloader();
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
                          myApp.alert(dados[0].iduser);
