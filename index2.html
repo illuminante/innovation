@@ -238,20 +238,21 @@ Bottom Toolbar
 
                     var count = $$("#countp");
                     var times = count.val();
-                    if(times == 0){
-                      window.plugins.toast.showShortBottom("Mais uma vez para sair");
-                    }
-                    else if(times == 1){
+                    if(times == 1){
                         if($$(".panel-left").hasClass("active")){
                             myApp.closePanel();
                         }else{
                             navigator.app.exitApp();
                         }
                     }else{
-
                         if($$(".panel-left").hasClass("active")){
                             myApp.closePanel();
                         }else{
+
+                            if(times == 0){
+                                window.plugins.toast.showShortBottom("Mais uma vez para sair");
+                            }
+
                             var one = 1;
                             var re = parseInt(times) + one;
                             count.val(re);
