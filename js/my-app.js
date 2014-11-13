@@ -268,14 +268,14 @@ $$(document).on('deviceready', function () {
 
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
-                        
+                        myApp.alert(dados[0].iduser);
                         var userid = getCookie("userID");
-                         myApp.alert(userid);
+                        myApp.alert(userid);
                         //console.log(dados[0].idpessoa);
 
-                         setTimeout(function(){
-                        window.location = "index2.html";
-                           }, 3000);
+                       
+                       // window.location = "index2.html";
+                          
 
                     } else{
 
@@ -288,7 +288,7 @@ $$(document).on('deviceready', function () {
                                 document.cookie = "userID=" + dados[0].iduser;
                                 
                                 //console.log(dados[0].idpessoa);
-
+                                
                                 window.location = "index2.html";
 
                             } else {
@@ -345,13 +345,14 @@ $$(document).on('deviceready', function () {
 
                         //##### CREATE COOKIE WITH ID  #######///
                         document.cookie = "userID=" + dados[0].iduser;
+                         myApp.alert(dados[0].iduser);
                         var userid = getCookie("userID");
                         myApp.alert(userid);
                         
                         
-                       setTimeout(function(){
-                        window.location = "index2.html";
-                           }, 3000);
+                      
+                        //window.location = "index2.html";
+                         
 
                     } else{
 
