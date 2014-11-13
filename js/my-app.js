@@ -43,7 +43,7 @@ function gomessage() {
     var avatar, name;
     if (messageType === 'sent') {
         avatar = window.localStorage.getItem("avatar");
-        name = window.localStorage.getItem("nome");
+        name = window.localStorage.getItem("name");
     }
     // Add message
     myApp.addMessage({
