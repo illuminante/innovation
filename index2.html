@@ -101,7 +101,7 @@
                         <div class="center sliding">3ª da Inovação</div>
                         <div class="right">
                             <!-- Left link contains only icon - additional "icon-only" class-->
-                            <a href="#" class="link icon-only"> <i class="icon icon-sign"></i>
+                            <a href="#" class="back link icon-only"> <i class="icon icon-sign"></i>
                             </a>
 
                         </div>
@@ -137,7 +137,7 @@
                             <div class="list-block" style="margin:0px">
                                 <ul>
                                     <li>
-                                        <a href="evento.html" class="item-link">
+                                        <a href="evento.html" class="item-link" onclick="navigator.vibrate(2);">
                                             <div class="item-content" style="background-color:#ED1171; color:#fff; font-weight:bold;min-height:54px">
                                                 <div class="item-inner" style="min-height:54px">
                                                     <div class="item-title">Evento</div>
@@ -146,7 +146,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="palestrantes.html" class="item-link">
+                                        <a href="palestrantes.html" class="item-link" onclick="navigator.vibrate(3);">
                                             <div class="item-content" style="background-color:#91298D; color:#fff; font-weight:bold;min-height:54px">
                                                 <div class="item-inner" style="min-height:54px">
                                                     <div class="item-title">Palestrantes</div>
@@ -155,7 +155,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="perguntas.html" class="item-link">
+                                        <a href="perguntas.html" class="item-link" onclick="navigator.vibrate(4);">
                                             <div class="item-content" style="background-color:#4B3192; color:#fff; font-weight:bold;min-height:54px">
                                                 <div class="item-inner" style="min-height:54px">
                                                     <div class="item-title">Perguntas</div>
@@ -164,7 +164,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="enquetes.html" class="item-link">
+                                        <a href="enquetes.html" class="item-link" onclick="navigator.vibrate(5);">
                                             <div class="item-content" style="background-color:#1481C7; color:#fff; font-weight:bold;min-height:54px">
                                                 <div class="item-inner" style="min-height:54px">
                                                     <div class="item-title">Enquetes</div>
@@ -173,7 +173,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="feedback.html" class="item-link">
+                                        <a href="feedback.html" class="item-link" onclick="navigator.vibrate(10);">
                                             <div class="item-content" style="background-color:#2AABE2; color:#fff; font-weight:bold;min-height:54px">
                                                 <div class="item-inner" style="min-height:54px">
                                                     <div class="item-title">Feedback</div>
@@ -185,16 +185,16 @@
                             </div>
 
                         </div>
+                        <div class="toolbar">
+                            <div class="toolbar-inner">
 
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--<div class="toolbar">
-<div class="toolbar-inner">
-
-
-
-</div>
-</div>
+                <!--
 Bottom Toolbar
 <div style="position:absolute;bottom:10px;width:100%;">
 <div style="margin-left:auto; margin-right:auto; width:111px;height:29px">
@@ -224,17 +224,17 @@ Bottom Toolbar
 
             // Handle the back button
             //
-           
-            
+
+
             function onBackKeyDown() {
 
 
                 var wpage = $$('.page-on-center').attr("data-page"); 
                 //myApp.alert(wpage);
                 if(wpage === "index"){
-                    
-                   
-                    
+
+
+
                     var count = $$("#countp");
                     var times = count.val();
 
