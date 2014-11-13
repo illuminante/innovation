@@ -124,6 +124,7 @@ function login() {
             } else {
 
                 myApp.hidePreloader();
+                navigator.vibrate(20);
                 myApp.alert("E-mail ou senha inválidos", "Erro!");
 
             }
@@ -131,6 +132,7 @@ function login() {
 
     } else {
         myApp.hidePreloader();
+        navigator.vibrate(20);
         myApp.alert("Todos os campos são obrigatórios.", "Erro!");
 
     }
@@ -142,7 +144,7 @@ function login() {
 
 function validate() {
     if ( !this.validity.valid ) {
-
+        navigator.vibrate(20);
         myApp.alert(this.getAttribute(this.validity.valueMissing ? "data-required-message" : "data-type-message" ),"Ops!");
         /*this.classList.add( "invalid" );
         this.parentNode.appendChild( span );
@@ -185,7 +187,7 @@ function newcadastro() {
         myApp.hidePreloader();
         $$("#passwordtx").val("");
         $$("#confpasswordtx").val("");
-
+        navigator.vibrate(20);
         myApp.alert("Senha não confirmada!", "Ops!");
 
         return false;
@@ -216,6 +218,7 @@ function newcadastro() {
         } else {
 
             myApp.hidePreloader();
+            navigator.vibrate(20);
             myApp.alert("E-mail ou senha inválidos", "Ops!");
 
         }
@@ -231,12 +234,14 @@ function sendpass() {
 
     if (emailf != ""){
         myApp.hidePreloader();
+        navigator.vibrate(20);
         myApp.alert("Senha enviada com sucesso para: " + emailf, "Terça da Inovação", function () {
             mainView.router.back()
         });
     }else{
 
         myApp.hidePreloader();
+        navigator.vibrate(20);
         myApp.alert("Email inválido.", "Ops!");
     }
 
@@ -309,6 +314,7 @@ $$(document).on('deviceready', function () {
                             } else {
 
                                 myApp.hidePreloader();
+                                navigator.vibrate(20);
                                 myApp.alert("E-mail ou senha inválidos", "Ops!");
 
                             }
@@ -394,6 +400,7 @@ $$(document).on('deviceready', function () {
                             } else {
 
                                 myApp.hidePreloader();
+                                navigator.vibrate(20);
                                 myApp.alert("E-mail ou senha inválidos", "Ops!");
 
                             }
