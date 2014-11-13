@@ -42,8 +42,8 @@ function gomessage() {
     // Avatar and name for received message
     var avatar, name;
     if (messageType === 'sent') {
-        avatar = 'img/user.png';
-        name = 'Usuário';
+        avatar = var value = window.localStorage.getItem("avatar");
+        name = window.localStorage.getItem("nome");
     }
     // Add message
     myApp.addMessage({
@@ -72,11 +72,13 @@ myApp.onPageInit('login', function (page) {
 });
 myApp.onPageInit('index', function (page) {
 
+    
 
 
 });
 myApp.onPageInit('perguntas', function (page) {
 
+    
 
 
 });
@@ -109,7 +111,12 @@ function login() {
             if (dados.RETORNO != "FAIL") {
 
                 //##### CREATE COOKIE WITH ID  #######///
-                document.cookie = "userID=" + dados[0].iduser;
+                window.localStorage.setItem("userID", dados[0].iduser);
+                window.localStorage.setItem("name", dados[0].nome);
+                window.localStorage.setItem("email", dados[0].email);
+                window.localStorage.setItem("avatar", dados[0].avatar);
+                window.localStorage.setItem("tipoLog", dados[0].type);
+                window.localStorage.setItem("cadastro", dados[0].cadastro);
                 //console.log(dados[0].idpessoa);
 
                 window.location = "index2.html";
@@ -172,9 +179,9 @@ function newcadastro() {
     var email = $$("#emailcadtx").val();
     var senha = $$("#passtx").val();
     var senha2 = $$("#confpasswordtx").val();
-    
 
-   if(senha != senha2){
+
+    if(senha != senha2){
         myApp.hidePreloader();
         $$("#passwordtx").val("");
         $$("#confpasswordtx").val("");
@@ -183,7 +190,7 @@ function newcadastro() {
 
         return false;
     }
-    
+
     var senhasec = calcMD5(senha);
 
     $$.getJSON("http://illuminante.org.br/app/services/cd.php?nome=" + nome + "&email=" + email + "&senha=" + senhasec + "&avatar=/img/user.png&tipo=normal", function (dados) {
@@ -192,7 +199,16 @@ function newcadastro() {
         if (dados.RETORNO != "FAIL") {
 
             //##### CREATE COOKIE WITH ID  #######///
-            document.cookie = "userID=" + dados[0].iduser;
+            window.localStorage.setItem("userID", dados[0].iduser);
+            window.localStorage.setItem("name", dados[0].nome);
+            window.localStorage.setItem("email", dados[0].email);
+            window.localStorage.setItem("avatar", dados[0].avatar);
+            window.localStorage.setItem("tipoLog", dados[0].type);
+            window.localStorage.setItem("cadastro", dados[0].cadastro);
+
+            //console.log(dados[0].idpessoa);
+
+
             //console.log(dados[0].idpessoa);
             mainView.router.back();
             window.location = "index2.html";
@@ -236,7 +252,7 @@ $$(document).on('deviceready', function () {
     OAuth.initialize('VASu5JaUudJ0zG2ar-1j1duUYso');
 
     $$('#fb-connect').on('touchstart', function () {
-       // $$('#result').html("");
+        // $$('#result').html("");
 
         OAuth.popup('facebook', {
             cache: true
@@ -259,15 +275,17 @@ $$(document).on('deviceready', function () {
                         myApp.hidePreloader();
                         //##### CREATE COOKIE WITH ID  #######///
                         window.localStorage.setItem("userID", dados[0].iduser);
-                        
-                        var value = window.localStorage.getItem("userID");
-                        
-                        myApp.alert(value, "localstorage");
+                        window.localStorage.setItem("name", dados[0].nome);
+                        window.localStorage.setItem("email", dados[0].email);
+                        window.localStorage.setItem("avatar", dados[0].avatar);
+                        window.localStorage.setItem("tipoLog", dados[0].type);
+                        window.localStorage.setItem("cadastro", dados[0].cadastro);
+
                         //console.log(dados[0].idpessoa);
 
-                       
-                       // window.location = "index2.html";
-                          
+
+                        window.location = "index2.html";
+
 
                     } else{
 
@@ -277,10 +295,15 @@ $$(document).on('deviceready', function () {
                             if (dados.RETORNO != "FAIL") {
 
                                 //##### CREATE COOKIE WITH ID  #######///
-                                document.cookie = "userID=" + dados[0].iduser;
-                                
+                                window.localStorage.setItem("userID", dados[0].iduser);
+                                window.localStorage.setItem("name", dados[0].nome);
+                                window.localStorage.setItem("email", dados[0].email);
+                                window.localStorage.setItem("avatar", dados[0].avatar);
+                                window.localStorage.setItem("tipoLog", dados[0].type);
+                                window.localStorage.setItem("cadastro", dados[0].cadastro);
+
                                 //console.log(dados[0].idpessoa);
-                                
+
                                 window.location = "index2.html";
 
                             } else {
@@ -314,7 +337,7 @@ $$(document).on('deviceready', function () {
 
     $$('#gg-connect').on('touchstart', function () {
 
-       // $$('#result').html("");
+        // $$('#result').html("");
         OAuth.popup('google', {
             cache: true
         })
@@ -324,8 +347,8 @@ $$(document).on('deviceready', function () {
 
             r.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + r.access_token)
             .done(function (data) {
-               //myApp.alert(data.name + " " + data.email);
-               //$$('#result').html('<img src="' + data.picture + '">');
+                //myApp.alert(data.name + " " + data.email);
+                //$$('#result').html('<img src="' + data.picture + '">');
                 var email = data.email;
                 var senha = "google";
                 var senhasec = calcMD5(senha);
@@ -336,15 +359,18 @@ $$(document).on('deviceready', function () {
                     if (dados.RETORNO != "FAIL") {
                         myApp.hidePreloader();
                         //##### CREATE COOKIE WITH ID  #######///
-                        document.cookie = "userID=" + dados[0].iduser;
-                         myApp.alert(dados[0].iduser);
-                        var userid = getCookie("userID");
-                        myApp.alert(userid, "cookie");
-                        
-                        
-                      
-                        //window.location = "index2.html";
-                         
+                        window.localStorage.setItem("userID", dados[0].iduser);
+                        window.localStorage.setItem("name", dados[0].nome);
+                        window.localStorage.setItem("email", dados[0].email);
+                        window.localStorage.setItem("avatar", dados[0].avatar);
+                        window.localStorage.setItem("tipoLog", dados[0].type);
+                        window.localStorage.setItem("cadastro", dados[0].cadastro);
+
+
+
+
+                        window.location = "index2.html";
+
 
                     } else{
 
@@ -354,8 +380,13 @@ $$(document).on('deviceready', function () {
                             if (dados.RETORNO != "FAIL") {
 
                                 //##### CREATE COOKIE WITH ID  #######///
-                                document.cookie = "userID=" + dados[0].iduser;
-                               // myApp.alert(dados[0].iduser);
+                                window.localStorage.setItem("userID", dados[0].iduser);
+                                window.localStorage.setItem("name", dados[0].nome);
+                                window.localStorage.setItem("email", dados[0].email);
+                                window.localStorage.setItem("avatar", dados[0].avatar);
+                                window.localStorage.setItem("tipoLog", dados[0].type);
+                                window.localStorage.setItem("cadastro", dados[0].cadastro);
+                                // myApp.alert(dados[0].iduser);
                                 //console.log(dados[0].idpessoa);
 
                                 window.location = "index2.html";
@@ -372,12 +403,12 @@ $$(document).on('deviceready', function () {
 
 
                 })    
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 $$('#result').html("req error: " + textStatus);
