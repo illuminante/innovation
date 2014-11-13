@@ -17,26 +17,7 @@
     </head>
 
     <body>
-        <!--<script>
-window.fbAsyncInit = function () {
-FB.init({
-appId: '780212862048002',
-xfbml: true,
-version: 'v2.1'
-});
-};
-
-(function (d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {
-return;
-}
-js = d.createElement(s);
-js.id = id;
-js.src = "//connect.facebook.net/pt_BR/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>-->
+       
         <!-- Status bar overlay for fullscreen mode-->
         <div class="statusbar-overlay"></div>
         <!-- Panels overlay-->
@@ -52,7 +33,7 @@ fjs.parentNode.insertBefore(js, fjs);
             <div class="list-block" style="margin:0px;">
                 <ul>
                     <li>
-                        <a href="#cadastro" class="item-link" onclick="myApp.closePanel();">
+                        <a href="#cadastro" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(50);">
                             <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Novo Cadastro</div>
@@ -61,7 +42,7 @@ fjs.parentNode.insertBefore(js, fjs);
                         </a>
                     </li>
                     <li>
-                        <a id="fb-connect" href="#" class="item-link" onclick="myApp.closePanel(); myApp.showPreloader();">
+                        <a id="fb-connect" href="#" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(50); myApp.showPreloader();">
                             <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Facebook</div>
@@ -70,7 +51,7 @@ fjs.parentNode.insertBefore(js, fjs);
                         </a>
                     </li>
                     <li>
-                        <a id="gg-connect" href="#" class="item-link" onclick="myApp.closePanel(); myApp.showPreloader();">
+                        <a id="gg-connect" href="#" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(50); myApp.showPreloader();">
                             <div class="item-content" style="background-color:#e83831; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Google</div>
@@ -80,7 +61,7 @@ fjs.parentNode.insertBefore(js, fjs);
                     </li>
 
                     <li>
-                        <a href="#" class="item-link" onclick="navigator.app.exitApp();">
+                        <a href="#" class="item-link" ontouchstart="navigator.vibrate(50); navigator.app.exitApp();">
                             <div class="item-content" style="background-color:#ccc; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Sair</div>
@@ -142,18 +123,18 @@ fjs.parentNode.insertBefore(js, fjs);
 
                                 <div class="list-block inset" style="position:absolute; margin-top:100px; width:90% ">
                                     <p>
-                                        <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); login();">
+                                        <a class="button button-round button-big" ontouchstart="navigator.vibrate(50); myApp.showPreloader(); login();">
                                             Entrar
                                         </a>
                                     </p>
 
                                     <p>
-                                        <a class="button button-round" href="#forgot">
+                                        <a class="button button-round" href="#forgot" ontouchstart="navigator.vibrate(50);">
                                             Esqueci a senha 
                                         </a>
                                     </p>
                                     <p>
-                                        <a data-panel="left" class="button button-round open-panel">
+                                        <a data-panel="left" class="button button-round open-panel" ontouchstart="navigator.vibrate(50);">
                                             Outras formas de login 
                                         </a>
                                     </p>
@@ -183,13 +164,13 @@ fjs.parentNode.insertBefore(js, fjs);
                                 </ul>
 
                                 <p>
-                                    <a class="button button-round button-big" onclick="javascript: myApp.showPreloader(); sendpass();">
+                                    <a class="button button-round button-big" ontouchstart="navigator.vibrate(50); myApp.showPreloader(); sendpass();">
                                         Enviar senha
                                     </a>
                                 </p>
 
                                 <p>
-                                    <a href="#login" class="back button button-round">
+                                    <a href="#login" class="back button button-round" ontouchstart="navigator.vibrate(50);">
                                         voltar 
                                     </a>
                                 </p>
@@ -244,7 +225,7 @@ fjs.parentNode.insertBefore(js, fjs);
                                     </ul>
 
                                     <p>
-                                        <a class="button button-round button-big" onclick="javascript: myApp.showPreloader();   newcadastro();">
+                                        <a class="button button-round button-big" ontouchstart="navigator.vibrate(50); myApp.showPreloader();   newcadastro();">
                                             Cadastrar
                                         </a>
                                     </p>
@@ -252,7 +233,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
 
                                 <p>
-                                    <a href="#login" class="back button button-round">
+                                    <a href="#login" class="back button button-round" ontouchstart="navigator.vibrate(50);">
                                         voltar 
                                     </a>
                                 </p>
