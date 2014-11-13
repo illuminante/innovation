@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
 
-    fastClicks: false
+    //fastClicks: false
 
 });
 
@@ -11,7 +11,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-var template = $$('script#template').html();
+var template = $$('script#template').innerHTML;
 var compiledTemplate = Template7.compile(template);
 
 // Add view
@@ -84,9 +84,9 @@ myApp.onPageInit('messages', function (page) {
 
         var field = $$(".messages");
         
-        var html = compiledTemplate({dados});
+        var pergs = compiledTemplate(dados);
        
-        field.html(html);
+        field.innerHTML(pergs);
     })
 
 

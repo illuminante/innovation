@@ -205,16 +205,19 @@ Bottom Toolbar
             </div>
         </div>
          <script id="template" type="text/template7">
-                {{#each pergunta}}
+               <div>
+               {{#each pergunta}}
                 <div>
                     <div style="width:55px; float:right">
                         <img class="avatar" src="{{avatar}}" alt="avatar" />
                     </div>
                     <div class="chatbubble" style="float:right">
-                        <div class='chatname'>{{nome}}</div>"{{pergunta}}"
+                        <div class='chatname'>{{nome}}</div>
+                        {{pergunta}}
                     </div>
                 </div>
                 {{#each pergunta}}
+                </div>
                 </script>
         <!-- Path to Framework7 Library JS-->
         <script type="text/javascript" src="js/framework7.js"></script>
