@@ -333,11 +333,13 @@ $$(document).on('deviceready', function () {
 
 
             })*/.fail(function (jqXHR, textStatus, errorThrown) {
-                myApp.alert("req error: " + textStatus);
+                myApp.hidePreloader();
+                //myApp.alert("req error: " + textStatus);
             });
         })
         .fail(function (e) {
-            myApp.alert('error: ' + e.message);
+            myApp.hidePreloader();
+            //myApp.alert('error: ' + e.message);
         });
     });
 
@@ -418,11 +420,13 @@ $$(document).on('deviceready', function () {
 
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
-                $$('#result').html("req error: " + textStatus);
+                myApp.hidePreloader();
+                //$$('#result').html("req error: " + textStatus);
             });
         })
         .fail(function (e) {
-            $$('#result').html('error: ' + e.message);
+            myApp.hidePreloader();
+            //$$('#result').html('error: ' + e.message);
         });
     });
 });
