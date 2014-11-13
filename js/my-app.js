@@ -82,7 +82,7 @@ myApp.onPageInit('messages', function (page) {
      var idevento = 1;//window.localStorage.getItem("idevento");
     $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "status=1", function (dados) {
 
-        var field = $$(".messages");
+        var field = document.getElementById("server-data");
         
         var pergs = compiledTemplate(dados);
        
