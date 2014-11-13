@@ -31,7 +31,7 @@
             <div class="list-block" style="margin:0px">
                 <ul>
                     <li>
-                        <a href="eventos.html" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(20);">
+                        <a href="eventos.html" class="item-link" onclick="myApp.closePanel(); navigator.vibrate(20);">
                             <div class="item-content" style="background-color:#1481C6; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Eventos</div>
@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="equipe.html" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(20);">
+                        <a href="equipe.html" class="item-link" onclick="myApp.closePanel(); navigator.vibrate(20);">
                             <div class="item-content" style="background-color:#04A576; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Quem somos</div>
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="contato.html" class="item-link" ontouchstart="myApp.closePanel(); navigator.vibrate(20);">
+                        <a href="contato.html" class="item-link" onclick="myApp.closePanel(); navigator.vibrate(20);">
                             <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Contato</div>
@@ -59,7 +59,7 @@
                     </li>
 
                     <li>
-                        <a href="contato.html" class="item-link" ontouchstart="navigator.vibrate(20); navigator.app.exitApp();">
+                        <a href="#" class="item-link" onclick="navigator.vibrate(20); navigator.app.exitApp();">
                             <div class="item-content" style="background-color:#10AC4F; color:#fff; font-weight:bold">
                                 <div class="item-inner" style="min-height:54px">
                                     <div class="item-title">Sair</div>
@@ -207,6 +207,7 @@ Bottom Toolbar
         <!-- Path to Framework7 Library JS-->
         <script type="text/javascript" src="js/framework7.js"></script>
         <!-- Path to your app js-->
+        <script type="text/javascript" src="js/Toast.js"></script>
         <script type="text/javascript" src="js/my-app.js"></script>
         <script>
             // Wait for device API libraries to load
@@ -237,8 +238,10 @@ Bottom Toolbar
 
                     var count = $$("#countp");
                     var times = count.val();
-
-                    if(times == 1){
+                    if(times == 0){
+                      window.plugins.toast.showShortBottom("Mais uma vez para sair");
+                    }
+                    else if(times == 1){
                         if($$(".panel-left").hasClass("active")){
                             myApp.closePanel();
                         }else{
