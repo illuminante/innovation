@@ -11,7 +11,7 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-var template = $$('script#template').innerHTML;
+var template = document.getElementById('template').innerHTML; 
 var compiledTemplate = Template7.compile(template);
 
 // Add view
