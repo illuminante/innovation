@@ -11,7 +11,8 @@ var myApp = new Framework7({
 // Export selectors engine
 var $$ = Dom7;
 
-
+var template = $$('script#template').html();
+var compiledTemplate = Template7.compile(template);
 
 // Add view
 var mainView = myApp.addView('.view-main', {
@@ -72,13 +73,22 @@ myApp.onPageInit('login', function (page) {
 });
 myApp.onPageInit('index', function (page) {
 
-    
+
 
 
 });
-myApp.onPageInit('perguntas', function (page) {
+myApp.onPageInit('messages', function (page) {
 
-    
+     var idevento = 1;//window.localStorage.getItem("idevento");
+    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "status=1", function (dados) {
+
+        var field = $$(".messages");
+        
+        var html = compiledTemplate({dados});
+       
+        field.html(html);
+    })
+
 
 
 });
