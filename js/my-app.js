@@ -101,10 +101,34 @@ myApp.onPageInit('index', function (page) {
 
 });
 
+function updatemess(){
 
-myApp.onPageAfterAnimation('messages', function (page) {
+    setTimeout(getNewDados(),5000);
+}
 
-    var idevento = 1;//window.localStorage.getItem("idevento");
+function getNewDados(){
+
+   
+var idevento = 1;//window.localStorage.getItem("idevento");
+
+    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1", function (dados){
+
+
+        var pergs = compiledTemplate(dados);
+
+        $$("#server-data").html(pergs);
+        
+       
+                
+    });
+    
+   updatemess();
+}
+
+function getDados(){
+
+   
+var idevento = 1;//window.localStorage.getItem("idevento");
 
     $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
 
@@ -112,20 +136,21 @@ myApp.onPageAfterAnimation('messages', function (page) {
         var pergs = compiledTemplate(dados);
 
         $$("#server-data").html(pergs);
-
-
+        
+       
+        
 
     });
+    
+    updatemess();
 
+}
 
-    /*.addClass("message-appear") var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
+myApp.onPageAfterAnimation('messages', function (page) {
 
-
-
-
-
-
-
+ getDados();
+    
+    
 });
 
 myApp.onPageInit('enquetes', function (page) {
