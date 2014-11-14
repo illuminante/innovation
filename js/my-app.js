@@ -103,7 +103,7 @@ myApp.onPageInit('index', function (page) {
 
 function updatemess(){
 
-    setTimeout(getNewDados(),5000);
+    setTimeout(function(){getNewDados();},5000);
 }
 
 function getNewDados(){
@@ -118,11 +118,11 @@ var idevento = 1;//window.localStorage.getItem("idevento");
 
         $$("#server-data").html(pergs);
         
-       
+       updatemess();
                 
     });
     
-   updatemess();
+   
 }
 
 function getDados(){
@@ -137,12 +137,12 @@ var idevento = 1;//window.localStorage.getItem("idevento");
 
         $$("#server-data").html(pergs);
         
-       
+       updatemess();
         
 
     });
     
-    updatemess();
+    
 
 }
 
