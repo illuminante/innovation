@@ -37,28 +37,47 @@ function gomessage() {
     // Empty textarea
     textarea.val('').trigger('change');
 
+
+
+
     // Random message type
     var messageType = 'sent'; //(['sent', 'received'])[Math.round(Math.random())];
 
     // Avatar and name for received message
     var avatar, name;
+
+
+
     if (messageType === 'sent') {
         avatar = window.localStorage.getItem("avatar");
         name = window.localStorage.getItem("name");
     }
-    // Add message
-    myApp.addMessage({
-        // Message text
-        text: messageText,
-        // Random message type
-        type: messageType,
-        // Avatar and name:
-        avatar: avatar,
-        name: name,
-        // Day
-        day: !conversationStarted ? 'Hoje' : false,
-        time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
-    })
+
+    $$.getJSON("http://illuminante.org.br/app/services/nm.php?idevento=1&avatar=" + avatar + "&nome=" + name + "&message=" + messageText + "&status=1", function(dados){
+
+
+        if(dados.RETORNO != "FAIL"){
+            // Add message
+            myApp.addMessage({
+                // Message text
+                text: messageText,
+                // Random message type
+                type: messageType,
+                // Avatar and name:
+                avatar: avatar,
+                name: name,
+                // Day
+                day: !conversationStarted ? 'Hoje' : false,
+                time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+            })
+            
+        }else{
+        
+            window.plugins.toast.showShortBottom("Erro ao enviar pergunta!");
+        
+        }
+
+    }) 
 }
 
 
@@ -77,18 +96,29 @@ myApp.onPageInit('index', function (page) {
 
 
 });
+
+
 myApp.onPageAfterAnimation('messages', function (page) {
 
     var idevento = 1;//window.localStorage.getItem("idevento");
-    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "status=1", function (dados) {
-    
-       /* var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
-       
-    var pergs = compiledTemplate(dados);
-    
+
+    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&status=1", function (dados){
+
+
+        var pergs = compiledTemplate(dados);
+
         $$("#server-data").html(pergs).addClass("message-appear");
-    
-    })
+
+
+
+    });
+
+
+    /* var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
+
+
+
+
 
 
 
