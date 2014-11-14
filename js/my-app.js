@@ -30,9 +30,9 @@ var d = new Date();
 
 var curr_hour = d.getHours();
     
-var curr_min = d.getMinutes();
+var curr_min = (d.getMinutes()<10?'0':'') + d.getMinutes();
 
-var curr_sec = d.getSeconds();    
+var curr_sec = (date.getSeconds()<10?'0':'') + date.getSeconds();    
 
   
 
