@@ -123,7 +123,7 @@ myApp.onPageInit('index', function (page) {
 
 function updatemess(t){
 
-    setTimeout(function(){getNewDados(t);},10000);
+    setTimeout(function(){getNewDados(t);},8000);
 }
 
 function getNewDados(t){
