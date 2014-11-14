@@ -65,13 +65,14 @@ function gomessage() {
     // Avatar and name for received message
     var avatar, name;
 
-
+    
 
     if (messageType === 'sent') {
         avatar = window.localStorage.getItem("avatar");
         name = window.localStorage.getItem("name");
     }
 
+    myApp.hidePreloader();
     
     
     $$.getJSON("http://illuminante.org.br/app/services/nm.php?idevento=1&avatar=" + avatar + "&nome=" + name + "&message=" + messageText + "&stat=1", function(dados){
