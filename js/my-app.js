@@ -135,7 +135,8 @@ function getNewDados(t){
    
 var idevento = 1;//window.localStorage.getItem("idevento");
 
-    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&datac=" + t + "", function (dados){
+    var nom = window.localStorage.getItem("name");
+    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&datac=" + t + "&nome=" + nom, function (dados){
 
         
         var ti = getTime();
