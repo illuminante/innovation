@@ -137,10 +137,10 @@ var idevento = 1;//window.localStorage.getItem("idevento");
         
         var ti = getTime();
         
-        var pergs = $$("#server-data").html();
+        var pergs = $$("#msg-content").html();
          pergs += compiledTemplate(dados);
 
-        $$("#server-data").html(pergs);
+        $$("#msg-content").html(pergs);
         
        updatemess(ti);
                 
@@ -159,7 +159,7 @@ var idevento = 1;//window.localStorage.getItem("idevento");
        var t = getTime();
       
        var pergs = compiledTemplate(dados);
-       $$("#server-data").html(pergs);
+       $$("#msg-content").html(pergs);
        updatemess(t);
         
 
