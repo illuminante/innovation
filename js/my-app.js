@@ -53,7 +53,9 @@ function gomessage() {
         name = window.localStorage.getItem("name");
     }
 
-    $$.getJSON("http://illuminante.org.br/app/services/nm.php?idevento=1&avatar=" + avatar + "&nome=" + name + "&message=" + messageText + "&status=1", function(dados){
+    
+    
+    $$.getJSON("http://illuminante.org.br/app/services/nm.php?idevento=1&avatar=" + avatar + "&nome=" + name + "&message=" + messageText + "&stat=1", function(dados){
 
 
         if(dados.RETORNO != "FAIL"){
@@ -70,6 +72,8 @@ function gomessage() {
                 day: !conversationStarted ? 'Hoje' : false,
                 time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
             })
+            
+            myApp.hidePreloader();
             
         }else{
         
@@ -102,7 +106,7 @@ myApp.onPageAfterAnimation('messages', function (page) {
 
     var idevento = 1;//window.localStorage.getItem("idevento");
 
-    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&status=1", function (dados){
+    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
 
 
         var pergs = compiledTemplate(dados);
