@@ -101,24 +101,25 @@ myApp.onPageInit('index', function (page) {
 
 });
 
-function updatemess(){
+function updatemess(t){
 
-    setTimeout(function(){getNewDados();},5000);
+    setTimeout(function(){getNewDados(t);},5000);
 }
 
-function getNewDados(){
+function getNewDados(t){
 
    
 var idevento = 1;//window.localStorage.getItem("idevento");
 
-    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1", function (dados){
+    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&datac=" + t + "", function (dados){
 
-
+        var ti = window.localStorage.setItem("time", dados[1].datac);
+        
         var pergs = compiledTemplate(dados);
 
         $$("#server-data").html(pergs);
         
-       updatemess();
+       updatemess(ti);
                 
     });
     
@@ -132,12 +133,10 @@ var idevento = 1;//window.localStorage.getItem("idevento");
 
     $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
 
-
-        var pergs = compiledTemplate(dados);
-
-        $$("#server-data").html(pergs);
-        
-       updatemess();
+       var t = window.localStorage.setItem("time", dados[1].datac);
+       var pergs = compiledTemplate(dados);
+       $$("#server-data").html(pergs);
+       updatemess(t);
         
 
     });
