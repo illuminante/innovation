@@ -111,14 +111,14 @@ myApp.onPageAfterAnimation('messages', function (page) {
 
         var pergs = compiledTemplate(dados);
 
-        $$("#server-data").html(pergs).addClass("message-appear");
+        $$("#server-data").html(pergs);
 
 
 
     });
 
 
-    /* var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
+    /*.addClass("message-appear") var pergs = compiledTemplate({pergunta:[{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon",pergunta:"Ol\u00e1 gostaria de saber ..."},{"avatar":"https:\/\/lh5.googleusercontent.com\/-X3j3XVBpeYw\/AAAAAAAAAAI\/AAAAAAAAAB4\/pkA9JNrE61A\/photo.jpg","nome":"Rafael Rincon","pergunta":"Tambem gostaria de saber se ...."}]});*/
 
 
 
