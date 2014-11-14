@@ -3278,7 +3278,7 @@
         ======================================================*/
         app.initMessages = function (pageContainer) {
             var page = $(pageContainer);
-            var messages = page.find('.messages');
+            var messages = page.find('.msg-content');
             if (messages.length === 0) return;
             var pageContent = page.find('.page-content');
             if (!messages.hasClass('new-messages-first')) pageContent[0].scrollTop = messages.height() - pageContent.height();
