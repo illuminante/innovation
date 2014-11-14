@@ -142,7 +142,7 @@ var idevento = 1;//window.localStorage.getItem("idevento");
         var ti = getTime();
         
         var pergs = $$("#server-data").html();
-        var pergs += compiledTemplate(dados);
+         pergs += compiledTemplate(dados);
 
         $$("#server-data").html(pergs);
         
