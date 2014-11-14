@@ -21,7 +21,31 @@ var mainView = myApp.addView('.view-main', {
     domCache: true //enable inline pages
 });
 
+function getTime(){
 
+
+
+var d = new Date();
+
+var curr_date = d.getDate();
+
+var curr_month = d.getMonth();
+
+var curr_year = d.getFullYear();
+
+var curr_hour = d.getHours();
+    
+var curr_min = d.getMinutes();
+
+var curr_sec = d.getSeconds();    
+
+  
+
+var timenow = curr_year + "-" + curr_month + "-" + curr_date + " " + curr_hour + " : " + curr_min + " : " + curr_sec;
+    
+    return timenow;
+
+}
 
 // CHAT
 var conversationStarted = false;
@@ -113,7 +137,9 @@ var idevento = 1;//window.localStorage.getItem("idevento");
 
     $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&datac=" + t + "", function (dados){
 
-        var ti = window.localStorage.setItem("time", dados[1].datac);
+        
+        var ti = getTime();
+        
         
         var pergs = compiledTemplate(dados);
 
@@ -132,8 +158,9 @@ function getDados(){
 var idevento = 1;//window.localStorage.getItem("idevento");
 
     $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
-
-       var t = window.localStorage.setItem("time", dados[1].datac);
+       
+       var t = getTime();
+      
        var pergs = compiledTemplate(dados);
        $$("#server-data").html(pergs);
        updatemess(t);
@@ -144,6 +171,8 @@ var idevento = 1;//window.localStorage.getItem("idevento");
     
 
 }
+
+
 
 myApp.onPageAfterAnimation('messages', function (page) {
 
