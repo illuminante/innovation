@@ -27,11 +27,6 @@ function getTime(){
 
 var d = new Date();
 
-var curr_date = d.getDate();
-
-var curr_month = d.getMonth();
-
-var curr_year = d.getFullYear();
 
 var curr_hour = d.getHours();
     
@@ -41,8 +36,8 @@ var curr_sec = d.getSeconds();
 
   
 
-var timenow = curr_year + "-" + curr_month + "-" + curr_date + " " + curr_hour + " : " + curr_min + " : " + curr_sec;
-    
+var timenow = curr_hour + ":" + curr_min + ":" + curr_sec;
+     window.plugins.toast.showShortBottom(timenow);
     return timenow;
 
 }
@@ -97,7 +92,7 @@ function gomessage() {
                 time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
             })
             
-            myApp.hidePreloader();
+            
             
         }else{
         
