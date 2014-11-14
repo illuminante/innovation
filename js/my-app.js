@@ -37,7 +37,7 @@ var curr_sec = (d.getSeconds()<10?'0':'') + d.getSeconds();
   
 
 var timenow = curr_hour + ":" + curr_min + ":" + curr_sec;
-     window.plugins.toast.showShortBottom(timenow);
+     //window.plugins.toast.showShortBottom(timenow);
     return timenow;
 
 }
