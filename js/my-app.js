@@ -121,46 +121,76 @@ myApp.onPageInit('index', function (page) {
 
 });
 
-function updatemess(t){
-
-    setTimeout(function(){getNewDados(t);},8000);
+function updatemess(rws){
+   
+    setTimeout(function(){getNewDados(rws);},7000);
 }
 
-function getNewDados(t){
+
+function getNewDados(rws){
 
    
 var idevento = 1;//window.localStorage.getItem("idevento");
 
-    var nom = window.localStorage.getItem("name");
-    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&datac=" + t + "&nome=" + nom, function (dados){
+   var nom = window.localStorage.getItem("name");
+    
+    $$.getJSON("http://illuminante.org.br/app/services/pg2.php?idevento=" + idevento + "&stat=1&rws=" + rws + "&nome=" + nom, function (dados){
 
         
-        var ti = getTime();
+        if( dados.pergunta != null ){
+            var nbr;
+            
+            $$.getJSON("http://illuminante.org.br/app/services/pg2count.php?idevento=1&stat=1", function (dados2){
+            
+                
+                   
+                    nbr = dados2.number;
+           
+            
+            
+               
+        var nrows = nbr;
+        var content =   $("#msg-content");  
+        var pergs = content.html();
+           
+        pergs += compiledTemplate(dados);
+        content.html(" "); 
+        content.html(pergs);
         
-        var pergs = $$("#msg-content").html();
-         pergs += compiledTemplate(dados);
-
-        $$("#msg-content").html(pergs);
+         updatemess(nrows);
+                  })
+            
+        }else{
         
-       updatemess(ti);
+         updatemess(rws);
+        
+        }
+        
+       
                 
     });
     
    
 }
 
+
 function getDados(){
 
    
 var idevento = 1;//window.localStorage.getItem("idevento");
 
-    $$.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
-       
-       var t = getTime();
+    $.getJSON("http://illuminante.org.br/app/services/pg.php?idevento=" + idevento + "&stat=1", function (dados){
       
+       
+       
+        var rws = dados.pergunta.length;
+       
+       //$.cookie("rows", dados.pergunta.length);
+        
        var pergs = compiledTemplate(dados);
-       $$("#msg-content").html(pergs);
-       updatemess(t);
+       $("#msg-content").html(pergs);
+       
+        updatemess(rws);
         
 
     });
@@ -168,6 +198,7 @@ var idevento = 1;//window.localStorage.getItem("idevento");
     
 
 }
+
 
 
 
